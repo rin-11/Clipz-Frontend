@@ -16,11 +16,17 @@ const UserAuth = () => {
       <div className="register-login">
       <form className="authForm">
         {/* if register is true, render register form otherwise render login  */}
-        <h3>{register ? "Sign up":"Log in"}</h3>
+        <h3>{register ? "Register":"Sign In"}</h3>
 
  {/* only show display name input if register is true */}
          {register && 
           <div>
+          <input
+          type="text"
+          placeholder="Username"
+          className="userInput"
+          name="username"
+        />
           <input
           type="text"
           placeholder="Display Name"
@@ -57,15 +63,16 @@ const UserAuth = () => {
         </div>
 
         <div>
-            <span style={{fontSize: '12px'}}>
-                {/* add links to log in or register */}
+            {/* onClick using previous value of setRegister to change when clicked to change from register to login forms */}
+        <span style={{fontSize: '12px'}} onClick={()=> setRegister((prev)=>!prev)}>
+            {/* Display different texts based on register status */}
               {register ? "Already have an account? Log In Here": "Don't have an account? Register Here"}
               </span>
         </div>
 
         {/* if register is true button says "Sign Up" else says "Log In"*/}
         <button className="button infoButton" type="submit">
-          {register ? "Sign Up": "Log In"}
+          {register ? "Sign Up": "Sign In"}
           </button>
 
       </form>
