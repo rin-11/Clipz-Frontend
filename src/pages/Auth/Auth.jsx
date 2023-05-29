@@ -8,6 +8,12 @@ const UserAuth = () => {
     // handle user input data (set inputs to null to start)
     const [userData, setUserData]= useState({email:"", username:"", displayname:"", password:"", confirmpassword:""})
 
+      // reset input forms 
+    const resetForms=()=>{
+        setConfirmPassword(true)
+        setUserData({ email:"", username:"", displayname:"", password:"", confirmpassword:""})
+    }
+
     // check password and confirmpassword are the same value when user hits regsiser
     const [confirmPassword, setConfirmPassword] = useState(true)
  
@@ -48,6 +54,7 @@ const UserAuth = () => {
           placeholder="Username"
           className="userInput"
           name="username"
+          value={userData.username}
           onChange = {handleChange}
         />
           <input
@@ -55,6 +62,7 @@ const UserAuth = () => {
           placeholder="Display Name"
           className="userInput"
           name="displayname"
+          value={userData.displayname}
           onChange = {handleChange}
         />
         </div>
@@ -67,6 +75,7 @@ const UserAuth = () => {
             className="userInput"
             name="email"
             placeholder="Email"
+            value={userData.email}
             onChange = {handleChange}
           />
         </div>
@@ -77,6 +86,7 @@ const UserAuth = () => {
             className="userInput"
             name="password"
             placeholder="Password"
+            value={userData.password}
             onChange = {handleChange}
           />
           {/* only confirm password if register is true */}
@@ -85,6 +95,7 @@ const UserAuth = () => {
             className="userInput"
             name="confirmpassword"
             placeholder="Confirm Password"
+            value={userData.confirmpassword}
             onChange = {handleChange}
           />}
         </div>
@@ -95,9 +106,15 @@ const UserAuth = () => {
           </span>
 
         <div>
-            {/* onClick using previous value of setRegister to change when clicked to change from register to login forms */}
-        <span style={{fontSize: '12px', cursor:"pointer"}} onClick={()=> setRegister((prev)=>!prev)}>
-            {/* Display different texts based on register status */}
+
+        {/* onClick using previous value of setRegister to change when clicked to change from register to login forms */}
+        <span style={{fontSize: '12px', cursor:"pointer"}} 
+        onClick={() => {
+            resetForms()
+            setRegister((prev) => !prev)
+            }}>
+
+            {/* Display different text based on register status */}
               {register ? "Already have an account? Click here to login": "Don't have an account? Click here to register"}
               </span>
         </div>
