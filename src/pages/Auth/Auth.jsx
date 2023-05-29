@@ -9,13 +9,22 @@ const UserAuth = () => {
     const [userData, setUserData]= useState({email:"", username:"", displayname:"", password:"", confirmpassword:""})
 
     // check password and confirmpassword are the same value when user hits regsiser
-    const [confirmPassword, setConfirmPassowrd] = useState(true)
+    const [confirmPassword, setConfirmPassword] = useState(true)
  
       // handle user input changes when user hits submit
   const handleChange = (e)=> {
     setUserData({...userData, [e.target.name]: e.target.value})
   }
 
+  const handleSubmit = (e)=> {
+    e.preventDefault() // page will not redirect onSubmit
+    if (register) { // if password and confirmpassword do not match..
+      if(userData.password !== userData.confirmpassword) {
+        // change confirmPassword state
+        setConfirmPassword(false)
+      }
+    }
+  }
 
   return (
     <div className="UserAuth">
@@ -26,7 +35,8 @@ const UserAuth = () => {
 
       {/*  Register/Login Side  */}
       <div className="register-login">
-      <form className="authForm">
+      {/* add onSubmit function for checking passwords match */}
+      <form className="authForm" onSubmit={handleSubmit}>
         {/* if register is true, render register form otherwise render login  */}
         <h3>{register ? "Register":"Sign In"}</h3>
 
