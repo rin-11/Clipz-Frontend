@@ -1,3 +1,6 @@
+// Reducer function related to Auth. 
+// Takes the current state & an action (action.type) & manipulates the state/returns new state
+
 // Reducer function for updating the authentication-related state:
 const AuthReducer = (state = { authData: null, loading: false, error: false, updateLoading: false },action) => {
     // switch statement checks the value of action type (from the authAction.js), which represents the action being dispatched

@@ -1,35 +1,25 @@
-import {
-    legacy_createStore as createStore,
-    applyMiddleware,
-    compose,
-  } from "redux";
-  import thunk from "redux-thunk";
-  import { reducers } from "../reducers";
-  
-  function saveToLocalStorage(store) {
-    try {
-        const serializedStore = JSON.stringify(store);
-        window.localStorage.setItem('store', serializedStore);
-    } catch(e) {
-        console.log(e);
-    }
-  }
-  
-  function loadFromLocalStorage() {
-    try {
-        const serializedStore = window.localStorage.getItem('store');
-        if(serializedStore === null) return undefined;
-        return JSON.parse(serializedStore);
-    } catch(e) {
-        console.log(e);
-        return undefined;
-    }
-  }
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const persistedState = loadFromLocalStorage();
-  
-  const store = createStore(reducers, persistedState, composeEnhancers(applyMiddleware(thunk)));
-  
-  store.subscribe(() => saveToLocalStorage(store.getState()));
-  
-  export default store;
+// Create the store
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import thunk from 'redux-thunk';
+import authReducer from '../reducers/AuthReducer'; // imports all because of CombinedReducers
+
+// Local Storage Middleware
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, authReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+      thunk: true,
+    }),
+});
+
+export const persistor = persistStore(store);

@@ -1,17 +1,11 @@
-
-
 // import useState from react
 import React, { useState } from "react";
 import "./Auth.css";
 
-// Use authReducer, authAction, and authRequest files for implementing auth functionality
-      // authReducer file: contains a Redux reducer function that handles state updates related to authentication-- Defines the initial state for authentication, (logged in or logged out), user information (username, email).. reducer listens for specific action types dispatched by authAction and updates
-      // authAction file: contains action functions that create/return actions related to user auth (logIn/register functions)
-      // authRequest file: contains utility functions/API request logic specifically related to authentication. Axios library is used to make HTTP requests & handle responses
-
 // import auth functions
 import { registerUser, loginUser } from '../../actions/AuthAction'
 
+// import React Redux hooks
 import { useDispatch, useSelector } from "react-redux";
 
 const UserAuth = () => {
@@ -20,7 +14,7 @@ const UserAuth = () => {
         email:"", username:"", displayname:"", password:"", confirmpassword:""
     };
 
-    // dipatch
+    // dipatch actions from Redux
     const dispatch = useDispatch();
 
     // set register to false to user is first prompted to log in
@@ -34,24 +28,28 @@ const UserAuth = () => {
 
     // Reset input forms 
     const resetForms=()=>{
+              // sets confirmPassword back to true
         setConfirmPassword(true);
         setUserData(initialState);
     };
 
     // handle user input changes when user hits submit
-    const handleChange = (e)=> {
+    const handleChange = (e)=> { // update the userData state with the new values from inputs
         setUserData({...userData, [e.target.name]: e.target.value})
     };
 
-     // Form Submission
-     const handleSubmit = (e) => {
+     // Form Submission --
+     const handleSubmit = (e) => { 
         setConfirmPassword(true);
         e.preventDefault(); // page will not redirect onSubmit
-        if (registerUser) { // if password and confirmpassword do not match
+        if (register) { // Check if the user wants to register --> if the password & confirm password are the same... 
           userData.password === userData.confirmpassword
+            // If they are --> dispatch registerUser action with userData as the payload
             ? dispatch(registerUser(userData))
-            : setConfirmPassword(false); // change confirmPassword state
+            // If they aren't --> sets confirmPassword to false 
+            : setConfirmPassword(false); 
         } else {
+    // If the user doesn't want to register --> dispatch loginUser action with userData as the payload
           dispatch(loginUser(userData));
         }
       };
