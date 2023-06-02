@@ -74,14 +74,6 @@ const UserAuth = () => {
           value={userData.username}
           onChange = {handleChange}
         />
-          {/* <input
-          type="text"
-          placeholder="Display Name"
-          className="userInput"
-          name="displayname"
-          value={userData.displayname}
-          onChange = {handleChange}
-        /> */}
         </div>
         }
 

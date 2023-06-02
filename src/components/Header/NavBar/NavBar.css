@@ -14,4 +14,5 @@
     font-size: 30px;
     margin: 0px 8px; 
     color: #513f3f;
+    -webkit-text-stroke: .5px rgba(77, 13, 13, 0.432);
   }

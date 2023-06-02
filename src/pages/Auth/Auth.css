@@ -9,6 +9,12 @@
 .Register-Login {
     font-size: 25px;
 }
+.AuthForm>h3 {
+    font-size: 45px;
+    margin:10px;
+    color: #513f3f;
+    -webkit-text-stroke: .5px rgba(77, 13, 13, 0.432);
+}
 
 .userInput {
     font-family: 'Imbue', serif;
