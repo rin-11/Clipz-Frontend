@@ -7,14 +7,14 @@
   }
   .SearchBar>input {
     font-family: 'Imbue', serif;
-    background-color: rgba(165, 42, 42, 0.235);
-    width: 400px;
-    height: 35px;
+    background-color: rgba(227, 208, 208, 0.77);
+    width: 500px;
+    height: 40px;
     text-align: center;
     font-size: 30px;
     border: none;
   }
 
-  .SearchBar > input::placeholder {
-    color: #ad2020;
+  .SearchBar>input::placeholder {
+    color: #421b1b;
   }

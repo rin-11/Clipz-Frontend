@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 const UserAuth = () => {
     // handle register/login states -- set inputs to null to start
     const initialState = {
-        email:"", username:"", displayname:"", password:"", confirmpassword:""
+        email:"", username:"",  password:"", confirmpassword:""
     };
 
     // dipatch actions from Redux
@@ -57,14 +57,9 @@ const UserAuth = () => {
   return (
     <div className="UserAuth">
 
-      <div className="Logo">
-            {/* Insert Logo Image and Site Description Here */}
-      </div>
-
-      {/*  Register/Login Side  */}
-      <div className="register-login">
+      <div className="Register-Login">
       {/* add onSubmit function for checking passwords match */}
-      <form className="authForm" onSubmit={handleSubmit}>
+      <form className="AuthForm" onSubmit={handleSubmit}>
         {/* if register is true, render register form otherwise render login  */}
         <h3>{register ? "Register":"Sign In"}</h3>
 
@@ -79,14 +74,14 @@ const UserAuth = () => {
           value={userData.username}
           onChange = {handleChange}
         />
-          <input
+          {/* <input
           type="text"
           placeholder="Display Name"
           className="userInput"
           name="displayname"
           value={userData.displayname}
           onChange = {handleChange}
-        />
+        /> */}
         </div>
         }
 
@@ -111,6 +106,7 @@ const UserAuth = () => {
             value={userData.password}
             onChange = {handleChange}
           />
+          <br></br>
           {/* only confirm password if register is true */}
          {register && <input
             type="password"
@@ -130,7 +126,7 @@ const UserAuth = () => {
         <div>
 
         {/* onClick using previous value of setRegister to change when clicked to change from register to login forms */}
-        <span style={{fontSize: '12px', cursor:"pointer"}} 
+        <span style={{fontSize: '12px', textDecoration: "underline", cursor:"pointer"}} 
         onClick={() => {
             resetForms()
             setRegister((prev) => !prev)
@@ -142,8 +138,8 @@ const UserAuth = () => {
         </div>
 
         {/* if register is true button says "Sign Up" else says "Log In"*/}
-        <button className="button infoButton" type="submit">
-          {register ? "Sign Up": "Sign In"}
+        <button className="register-signup-btn" type="submit">
+          {register ? "Register": "Sign In"}
           </button>
 
       </form>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Imbue:wght@200&family=Rubik+Puddles&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 .NavBar {
     display: flex;
@@ -9,9 +9,9 @@
   }
   
   .NavBar > h3 {
-    font-family: 'Rubik Puddles', cursive;
+    font-family: 'Abril Fatface', cursive;
     text-align: center;
     font-size: 30px;
-    margin: 0px 10px; 
-    color: #ad2020;
+    margin: 0px 8px; 
+    color: #513f3f;
   }

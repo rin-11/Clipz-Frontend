@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Imbue:wght@200&display=swap");
+
+
+.UserAuth {
+    font-family: 'Abril Fatface', cursive;
+}
+
+.Register-Login {
+    font-size: 25px;
+}
+
+.userInput {
+    font-family: 'Imbue', serif;
+    background-color: rgba(227, 208, 208, 0.77);
+    width: max-content;
+    height: 25px;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .userInput>input::placeholder {
+    color: #421b1b;
+  }
+
+  .register-signup-btn {
+    font-family: 'Imbue', serif;
+    background-color: #7b3333; 
+    color: #bfa9a9; 
+    font-size: 30px;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .register-signup-btn:hover {
+    background-color: #421b1b; /* Button background color on hover */
+  }
