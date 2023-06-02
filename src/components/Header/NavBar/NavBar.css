@@ -1,12 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Imbue:wght@200&family=Rubik+Puddles&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Imbue:wght@200&family=Rubik+Puddles&display=swap");
 
 .NavBar {
     display: flex;
+    justify-content: space-between;
+    flex-direction: row; 
     border-radius: 10px;
-    padding: 5px;
+    padding: 25px;
   }
-  .NavBar>h3 {
+  
+  .NavBar > h3 {
     font-family: 'Rubik Puddles', cursive;
     text-align: center;
     font-size: 30px;
+    margin: 0px 10px; 
+    color: #ad2020;
   }

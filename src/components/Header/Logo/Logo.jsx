@@ -1,8 +1,9 @@
 import React from 'react'
+import './Logo.css'
 
 const Logo = () => {
   return (
-    <div>Logo Image Goes Here</div>
+    <div className='Logo'>Logo Image Goes Here</div>
   )
 }
 
