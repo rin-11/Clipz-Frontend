@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Imbue:wght@200&display=swap");
+
+.SearchBar {
+    display: flex;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  .SearchBar>input {
+    font-family: 'Imbue', serif;
+    background-color: rgba(165, 42, 42, 0.235);
+    width: 30%;
+    height: 35px;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+  }
