@@ -1,9 +1,13 @@
 import React from 'react'
+import LogoPNG from '../../../assets/Logo 3.png'
 import './Logo.css'
 
 const Logo = () => {
   return (
-    <div className='Logo'>Logo Image Goes Here</div>
+    <div className='Logo'>
+      <img src={LogoPNG} alt="butterflyclipz" className="Logo-PNG" />
+      <h1>ButterflyCLIPZ</h1>
+    </div>
   )
 }
 

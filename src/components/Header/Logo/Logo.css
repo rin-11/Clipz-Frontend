@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 
 .Logo {
-    display: flex;
-    border-radius: 10px;
-    padding: 25px;
-}
+    font-family: 'Dancing Script', cursive;
+    position: flex;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: auto; 
+  }
+  
+  .Logo-PNG {
+    width: 100%;
+    height: auto;
+  }

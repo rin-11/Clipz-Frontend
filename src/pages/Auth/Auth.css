@@ -7,39 +7,40 @@
 }
 
 .Register-Login {
-    font-size: 25px;
-}
-.AuthForm>h3 {
     font-size: 45px;
+    letter-spacing: 3px
+}
+
+.AuthForm>h3 {
+    font-size: 55px;
+    letter-spacing: 5px;
     margin:10px;
-    color: #513f3f;
-    -webkit-text-stroke: .5px rgba(77, 13, 13, 0.432);
+    color: #000000;
+    text-shadow: -0.5px 1.5px 0.5px rgb(255, 255, 255), 0.5px 0px 0.5px rgb(243, 235, 235), -0.5px 0.5px 0.5px black, 0.5px 0.5px 0.5px black;
 }
 
 .userInput {
     font-family: 'Imbue', serif;
-    background-color: rgba(227, 208, 208, 0.77);
-    width: max-content;
-    height: 25px;
+    background-color: #dedad5;
+    width: 300px;
+    height: 30px;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
   }
 
-  .userInput>input::placeholder {
-    color: #421b1b;
-  }
-
+ 
   .register-signup-btn {
     font-family: 'Imbue', serif;
-    background-color: #7b3333; 
-    color: #bfa9a9; 
-    font-size: 30px;
-    padding: 5px 20px;
+    background-color: #252324; 
+    color: #ffffff; 
+    font-size: 35px;
+    margin: 10px;
+    padding: 5px 25px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
   .register-signup-btn:hover {
-    background-color: #421b1b; /* Button background color on hover */
+    background-color: #454444; /* Button background color on hover */
   }

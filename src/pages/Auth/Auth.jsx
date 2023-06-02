@@ -115,18 +115,18 @@ const UserAuth = () => {
             Passwords Do Not Match
           </span>
 
-        <div>
+        <div className="switch-auth">
 
-        {/* onClick using previous value of setRegister to change when clicked to change from register to login forms */}
-        <span style={{fontSize: '12px', textDecoration: "underline", cursor:"pointer"}} 
-        onClick={() => {
-            resetForms()
-            setRegister((prev) => !prev)
-            }}>
+          {/* onClick using previous value of setRegister to change when clicked to change from register to login forms */}
+          <span style={{fontSize: '20px', textDecoration: "underline", cursor:"pointer"}} 
+          onClick={() => {
+              resetForms()
+              setRegister((prev) => !prev)
+              }}>
 
-            {/* Display different text based on register status */}
-              {register ? "Already have an account? Click here to login": "Don't have an account? Click here to register"}
-              </span>
+              {/* Display different text based on register status */}
+                {register ? "Already have an account? Click here to login": "Don't have an account? Click here to register"}
+          </span>
         </div>
 
         {/* if register is true button says "Sign Up" else says "Log In"*/}
