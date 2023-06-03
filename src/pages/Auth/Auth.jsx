@@ -54,61 +54,68 @@ const UserAuth = () => {
         }
       };
 
-  return (
-    <div className="UserAuth">
-
-      <div className="Register-Login">
-      {/* add onSubmit function for checking passwords match */}
-      <form className="AuthForm" onSubmit={handleSubmit}>
-        {/* if register is true, render register form otherwise render login  */}
-        <h3>{register ? "Register":"Sign In"}</h3>
-
- {/* only show display name input if register is true */}
-         {register && 
-          <div>
-          <input
-          type="text"
-          placeholder="Username"
-          className="userInput"
-          name="username"
-          value={userData.username}
-          onChange = {handleChange}
-        />
-        </div>
-        }
-
-
-        <div>
-          <input
-            type="text"
-            className="userInput"
-            name="email"
-            placeholder="Email"
-            value={userData.email}
-            onChange = {handleChange}
-          />
-        </div>
-
-        <div>
-          <input
-            type="password"
-            className="userInput"
-            name="password"
-            placeholder="Password"
-            value={userData.password}
-            onChange = {handleChange}
-          />
-          <br></br>
-          {/* only confirm password if register is true */}
-         {register && <input
-            type="password"
-            className="userInput"
-            name="confirmpassword"
-            placeholder="Confirm Password"
-            value={userData.confirmpassword}
-            onChange = {handleChange}
-          />}
-        </div>
+      return (
+        <div className="UserAuth">
+      
+          <div className="Register-Login">
+            {/* add onSubmit function for checking passwords match */}
+            <form className="AuthForm" onSubmit={handleSubmit}>
+              {/* if register is true, render register form otherwise render login  */}
+              <h3>{register ? "Register" : "Sign In"}</h3>
+      
+              {register ? (
+                <div className="input-group">
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    className="userInput"
+                    name="email"
+                    value={userData.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    className="userInput"
+                    name="username"
+                    value={userData.username}
+                    onChange={handleChange}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    className="userInput"
+                    name="email"
+                    value={userData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+              )}
+      
+              <div>
+                <input
+                  type="password"
+                  className="userInput"
+                  name="password"
+                  placeholder="Password"
+                  value={userData.password}
+                  onChange={handleChange}
+                />
+                {/* only confirm password if register is true */}
+                {register && (
+                  <input
+                    type="password"
+                    className="userInput"
+                    name="confirmpassword"
+                    placeholder="Confirm Password"
+                    value={userData.confirmpassword}
+                    onChange={handleChange}
+                  />
+                )}
+              </div>
         
         {/* Display for when password do not match and confirmPassword is set to false */}
         <span style={{ color: "red", fontSize: "12px", alignSelf: "flex-end", marginRight: "5px", display: confirmPassword ? "none" : "block"}}>

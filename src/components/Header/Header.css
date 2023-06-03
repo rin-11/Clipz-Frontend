@@ -1,5 +1,20 @@
 .Header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: space-between; 
+  overflow-x: hidden; 
+}
+
+.Logo {
+  margin-right: 10px; 
+}
+
+.SearchBar {
+  flex-grow: 1;
+}
+
+.Header {
+  max-width: 100%; 
+  margin: 0 auto; 
+}

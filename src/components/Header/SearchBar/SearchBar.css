@@ -2,18 +2,35 @@
 
 .SearchBar {
     display: flex;
-    border-radius: 10px;
-    padding: 25px;
+    border-radius: 5px;
+    padding: 20px;
   }
   .SearchBar>input {
     font-family: 'Imbue', serif;
     background-color: #dedad5;
+    padding: 10px;
     width: 600px;
     height: 40px;
     text-align: center;
     font-size: 30px;
   }
 
-  .SearchBar>input::placeholder {
-    color: #000000;
+  .SearchBar>button{
+    background: none;
+    border: 5px black;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .submitButton>img {
+    width: 80px; 
+    height: 65px; 
+  }
+
+  .submitIcon {
+    transition: transform 0.3s ease;
+  }
+
+  .submitButton:hover .submitIcon {
+    transform: scale(1.2);
   }

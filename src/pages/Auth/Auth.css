@@ -8,8 +8,14 @@
 
 .Register-Login {
     font-size: 45px;
-    letter-spacing: 3px
+    letter-spacing: 3p;
 }
+
+.AuthForm {
+  height: 50%; 
+}
+
+
 
 .AuthForm>h3 {
     font-size: 55px;
@@ -20,6 +26,7 @@
 }
 
 .userInput {
+    margin-right: 10px;
     font-family: 'Imbue', serif;
     background-color: #dedad5;
     width: 300px;
@@ -28,7 +35,7 @@
     font-size: 35px;
   }
 
- 
+
   .register-signup-btn {
     font-family: 'Imbue', serif;
     background-color: #252324; 
@@ -42,5 +49,5 @@
   }
   
   .register-signup-btn:hover {
-    background-color: #454444; /* Button background color on hover */
+    background-color: #454444; 
   }

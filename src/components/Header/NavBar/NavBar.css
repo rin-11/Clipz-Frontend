@@ -2,18 +2,25 @@
 
 .NavBar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: row; 
     border-radius: 10px;
     padding: 25px;
   }
   
-  .NavBar > h3 {
+  .NavBar > a {
     font-family: 'Abril Fatface', cursive;
     text-align: center;
     font-size: 30px;
-    margin: 0px 5px; 
+    margin: 0px 20px; 
     letter-spacing: 6px;
     color: #000000;
     text-shadow: -0.5px 1.5px 0.5px rgb(255, 255, 255), 0.5px 0px 0.5px rgb(243, 235, 235), -0.5px 0.5px 0.5px black, 0.5px 0.5px 0.5px black;
+    text-decoration: none;
+    transition: transform 0.3s ease;
   }
+
+  .NavBar a:hover {
+    color: #585656; 
+    transform: scale(1.2);
+}
