@@ -12,12 +12,12 @@
     width: 600px;
     height: 40px;
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
   }
 
   .SearchBar>button{
     background: none;
-    border: 5px black;
+    border: none;
     display: flex;
     cursor: pointer;
   }

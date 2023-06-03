@@ -10,7 +10,6 @@ const SearchBar = () => {
     try {
       // Make a request to your backend server to search the MongoDB
       const response = await axios.get(`/search/${searchQuery}`);
-      // Handle the response data
       const userData = response.data;
       console.log('User data:', userData);
 
@@ -18,7 +17,6 @@ const SearchBar = () => {
       console.error(error);
     }
   };
-
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+.UserInfo {
+    font-family: 'Abril Fatface', cursive;
+    display: inline-block;
+    border: 6px ridge black;
+    padding: 30px 70px;
+    text-align: center;
+    margin: 0px 40px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.Propic>img {
+    width: 175px; 
+    height: 175px; 
+}
+.editButton>img{
+    width: 50px; 
+    height: 50px;
+}
+
+.ProfileName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.ProfileName>h2 {
+    font-size: 30px;
+}
+
+.editButton>button{
+    background: none;
+    border: none;
+    display: flex;
+    cursor: pointer;
+}
+
+.ProfileRow {
+    display: flex;
+    margin-top: 0px;   
+  }
+
+  .ProfileRow>h4{
+    text-align: center;
+    margin-left: 50px;
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+
+.ProfileName:hover .editIcon {
+    transform: scale(1.2);
+}
+
+.followCount {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 20px; 
+  }
+  
+  .followCount .followers {
+    margin-right: 20px; 
+  }
+
