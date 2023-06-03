@@ -48,9 +48,15 @@
     font-size: 18px;
     letter-spacing: 5px;
     cursor: pointer;
+    transition: transform 0.3s ease
 }
 .displayname>span:nth-of-type(1){
     font-weight: bold;
+}
+
+.displayname:hover {
+  color: #585656; 
+  transform: scale(0.8);
 }
 
 
