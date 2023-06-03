@@ -1,28 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
+/* Add CSS so once friend list is being imported from DB the user can scroll through the friends list but the div size does not change */
+
 .Connect {
   font-family: 'Abril Fatface', cursive;
   display: inline-block;
-  border: 3px groove black;
-  border-radius: 20px;
+  border: 4px double rgb(43, 42, 42);
+  border-radius: 50px;
   padding: 0px 20px;
-  margin: -50px 30px;
+  margin: -90px 30px;
   position: fixed;
   right: 0;
-  top: 85%;
-  width: 200px;
-  height: 300px;
+  top: 55%;
+  width: 300px;
+  height: 400px;
   transform: translateY(-50%);
   letter-spacing: 8px;
 }
-
-ul {
-  list-style-type: none;
-  padding-left: 0; 
+.Connect>h3{
   font-size: 25px;
 }
-
-li {
-  text-align: left; 
-  font-size: 20px;
+.friendImage{
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+.friends{
+    display: flex;
+    align-items: center;
 }
+
+.friends>div{
+    display: flex;
+    gap: 10px;
+}
+
+.displayname{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+.displayname>span:nth-of-type(1){
+    font-weight: bold;
+}
+
+
+
