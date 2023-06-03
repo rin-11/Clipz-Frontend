@@ -30,7 +30,7 @@ const UserDisplay = () => {
         <div className="followButton">
             <button className="followButton">
                 <img src={Follow} alt="Submit" className="FollowIcon"/>
-                <h5>Send Friend Request</h5>
+                <h5>Add Friend</h5>
             </button>
         </div>
     </div>

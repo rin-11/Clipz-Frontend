@@ -75,6 +75,7 @@
 .followButton>img {
   width: 80px; 
   height: 65px; 
+  margin-top: 20px;
 }
 
 .followButton {
@@ -84,7 +85,7 @@
   display: flex;
   cursor: pointer;
   transition: transform 0.3s ease;
-  margin-left: 5px;
+  margin-left: 20px;
 }
 
 .followButton:hover .FollowIcon {
@@ -98,10 +99,10 @@
 }
 
 .followButton>h5{
-  margin-top: 20px;
   text-align: center;
   font-size: 15px;
   letter-spacing: 5px;
+  margin-top: 50px;
 }
 
 .followButton {
@@ -110,10 +111,7 @@
   margin-top: 220px;
 }
 
-.followButton img {
-  width: 80px;
-  height: 65px;
-}
+
 
 .followButton h5 {
   margin-left: 10px; 

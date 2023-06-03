@@ -1,0 +1,27 @@
+.InvItem {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    gap: 1rem;
+}
+
+.InvItem>img{
+    width: 100%;
+    max-height: 8rem;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease
+}
+.InvItem:hover {
+  color: #585656; 
+  transform: scale(1.1);
+}
+.details {
+    display: flex;
+    flex-direction: column;
+}
+.details>:nth-of-type(1){
+    font-size: 20px;
+    font-weight: bold;
+}
