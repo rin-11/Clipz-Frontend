@@ -3,13 +3,14 @@
 .SearchBar {
     display: flex;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
+    margin: 20px;
   }
   .SearchBar>input {
     font-family: 'Imbue', serif;
     background-color: #dedad5;
     padding: 10px;
-    width: 600px;
+    width: 500px;
     height: 40px;
     text-align: center;
     font-size: 50px;
@@ -32,5 +33,5 @@
   }
 
   .submitButton:hover .submitIcon {
-    transform: scale(1.2);
+    transform: scale(1.8);
   }

@@ -5,7 +5,7 @@
     justify-content: space-evenly;
     flex-direction: row; 
     border-radius: 10px;
-    padding: 25px;
+    padding: 30px;
   }
   
   .NavBar > a {

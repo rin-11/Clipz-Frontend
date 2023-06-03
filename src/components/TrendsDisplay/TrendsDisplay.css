@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+.Trends {
+  font-family: 'Abril Fatface', cursive;
+  display: inline-block;
+  border: 3px groove black;
+  border-radius: 20px;
+  padding: 0px 20px;
+  margin: -50px 30px;
+  position: fixed;
+  right: 0;
+  top: 30%;
+  width: 200px;
+  height: 300px;
+  letter-spacing: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0; 
+  font-size: 25px;
+}
+
+li {
+  text-align: left; 
+  font-size: 20px;
+}
