@@ -7,15 +7,18 @@ const TrendsDisplay = () => {
   return (
     <div className="Trends">
       <h3>Trending</h3>
-      {Trends.map((trend)=>{
-          return(
+      <div className="trends-container">
+        {Trends.map((trend) => {
+          return (
             <div className="trend">
               <span>#{trend.name}</span>
             </div>
-                )
-      })}
+          );
+        })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default TrendsDisplay
+

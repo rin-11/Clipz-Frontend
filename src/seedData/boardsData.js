@@ -34,5 +34,23 @@ export const BoardsData = [
         boardName: 'Board 5',
         keywords: "keywords",
         isPrivate: false
-    }
+    },
+    {
+        image: boardPic4,
+        boardName: 'Board 6',
+        keywords: "keywords",
+        isPrivate: false
+    },
+    {
+        image: boardPic1,
+        boardName: 'Board 7',
+        keywords: "keywords",
+        isPrivate: false
+    },
+    {
+        image: boardPic2,
+        boardName: 'Board 8',
+        keywords: "keywords",
+        isPrivate: false
+    },
 ]

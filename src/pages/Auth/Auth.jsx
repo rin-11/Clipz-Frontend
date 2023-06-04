@@ -7,16 +7,18 @@ import { registerUser, loginUser } from '../../actions/AuthAction'
 
 // import React Redux hooks
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Explore from "../Explore/Explore";
+
 
 const UserAuth = () => {
     // handle register/login states -- set inputs to null to start
     const initialState = {
         email:"", username:"",  password:"", confirmpassword:""
     };
-
+    const navigate = useNavigate();
     // dipatch actions from Redux
     const dispatch = useDispatch();
-
     // set register to false to user is first prompted to log in
     const [register, setRegister] = useState(false);
 
@@ -52,6 +54,8 @@ const UserAuth = () => {
     // If the user doesn't want to register --> dispatch loginUser action with userData as the payload
           dispatch(loginUser(userData));
         }
+
+        navigate('/explore'); // Redirect to the explore page after successful login or registration
       };
 
       return (
@@ -137,7 +141,7 @@ const UserAuth = () => {
         </div>
 
         {/* if register is true button says "Sign Up" else says "Log In"*/}
-        <button className="register-signup-btn" type="submit">
+        <button className="register-signup-btn" type="submit"  >
           {register ? "Register": "Sign In"}
           </button>
 

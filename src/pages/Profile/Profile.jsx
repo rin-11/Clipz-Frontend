@@ -17,10 +17,6 @@ const Profile = () => {
       <TrendsDisplay/>
       <InvDisplay/>
       <BoardsDisplay/>
-      {/* <div className="ProfileLinks">
-        <Link to="/closet">Closet</Link>
-         <Link to="/boards">Boards</Link>
-      </div> */}
     </div>
   )
 }
