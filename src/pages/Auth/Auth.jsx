@@ -16,6 +16,7 @@ const UserAuth = () => {
     const initialState = {
         email:"", username:"",  password:"", confirmpassword:""
     };
+    const loading = useSelector((state) => state.authData.loading);
     const navigate = useNavigate();
     // dipatch actions from Redux
     const dispatch = useDispatch();
@@ -140,10 +141,9 @@ const UserAuth = () => {
         </div>
 
         {/* if register is true button says "Sign Up" else says "Log In"*/}
-        <button className="register-signup-btn" type="submit"  >
-          {register ? "Register": "Sign In"}
+        <button className="register-signup-btn" type="submit" disabled={loading}>
+              {loading ? "Loading" : register ? "SignUp" : "Login"}
           </button>
-
       </form>
     </div>
     </div>

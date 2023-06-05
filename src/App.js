@@ -24,7 +24,7 @@ function App() {
         <Route path="/explore" 
         element={user ? <Explore />: <Navigate to="../auth"/>} 
         />
-        <Route path="/auth" element={user ? <Navigate to="../explore" />:<UserAuth />} />
+        <Route path="/auth" element={user ? <Navigate to="/explore" />:<UserAuth />} />
         <Route path="/search" element={<SearchBar />} />
       </Routes>
     </div>

@@ -3,7 +3,7 @@ import * as AuthApi from '../api/AuthRequest'
 // Contain Redux actions related to authentication (loginUser & registerUser) 
 // Actions make API calls & dispatch actions to the Redux store with a payload containing the userData
 
-export const loginUser = (formData) => async(dispatch) => {
+export const loginUser = (formData, navigate) => async(dispatch) => {
     dispatch({type: "AUTH_START"})
     try{
         const {userData} = await AuthApi.loginUser(formData)
@@ -13,11 +13,11 @@ export const loginUser = (formData) => async(dispatch) => {
     catch (error) {
         console.log(error)
         dispatch({type: "AUTH_FAILURE"})
-        console.log("Log In Unsuccessful");
+        console.log("Log In Error");
     }
 }
 
-export const registerUser = (formData) => async(dispatch) => {
+export const registerUser = (formData, navigate) => async(dispatch) => {
     dispatch({type: "AUTH_START"})
     try{
         const {userData} = await AuthApi.registerUser(formData)
@@ -27,6 +27,6 @@ export const registerUser = (formData) => async(dispatch) => {
     catch (error) {
         console.log(error)
         dispatch({type: "AUTH_FAILURE"})
-        console.log("Register User Unsuccessful");
+        console.log("Register Error");
     }
 }
