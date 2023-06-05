@@ -3,11 +3,11 @@ import './UserBoards.css'
 import { BoardsData } from '../../seedData/boardsData'
 import Board from '../Boards/Board/Board'
 
-const BoardsDisplay = () => {
+const UserBoards = () => {
     return (
         <div className="UserBoardsDisplay">
           <h2>Style Boards</h2>
-        <div className="Boards">
+        <div className="UserBoards">
         {BoardsData.map((board, id)=>{
             return <Board data={board} id={id}/>
         })}
@@ -19,4 +19,4 @@ const BoardsDisplay = () => {
       )
     }
 
-export default BoardsDisplay
+export default UserBoards

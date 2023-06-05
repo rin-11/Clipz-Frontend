@@ -27,10 +27,16 @@ const UserDisplay = () => {
             </div> 
         </div> 
     </div>
-        <div className="followButton">
+        {/* <div className="followButton">
             <button className="followButton">
                 <img src={Follow} alt="Submit" className="FollowIcon"/>
                 <h5>Add Friend</h5>
+            </button>
+        </div> */}
+        <div className="logoutButton">
+            <button className="logoutButton">
+                <img src={Follow} alt="Submit" className="FollowIcon"/>
+                <h5>Log Out</h5>
             </button>
         </div>
     </div>

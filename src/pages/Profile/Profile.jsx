@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import "./Profile.css";
 import UserDisplay from '../../components/UserDisplay/UserDisplay';
 import FriendsDisplay from '../../components/FriendsDisplay/FriendsDisplay';
-import TrendsDisplay from '../../components/TrendsDisplay/TrendsDisplay';
 import InvDisplay from '../../components/Inventory/InvDisplay';
-import BoardsDisplay from '../../components/Boards/BoardsDisplay';
-
+import UserBoards from '../../components/Boards/UserBoards'
+import TrendsDisplay from '../../components/TrendsDisplay/TrendsDisplay';
 
 
 const Profile = () => {
@@ -16,7 +15,7 @@ const Profile = () => {
       <FriendsDisplay/>
       <TrendsDisplay/>
       <InvDisplay/>
-      <BoardsDisplay/>
+      <UserBoards/>
     </div>
   )
 }

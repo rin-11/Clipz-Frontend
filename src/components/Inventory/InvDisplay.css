@@ -3,27 +3,33 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    margin: -600px 350px;
+    top: 180px;
+    left: 370px;
+    width: 100vh;
+    overflow: scroll;
+    overflow-y: hidden;
 }
 
 .Inventory {
     display: flex;
     flex-direction: row;
-    border: 4px double rgb(43, 42, 42);
+    border: 4px groove rgb(43, 42, 42);
     border-radius: 20px;
     gap: 1rem;
     padding: 80px 0px 20px 0px; 
     margin: -30px -20px;
-    width: 850px;
+    width: 97vh;
+    height: 20vh;
     position: fixed;
+    overflow: scroll;
+    overflow-y: hidden;
 }
 
 .InvDisplay>h2 {
     font-size: 25px;
     letter-spacing: 5px;
-    margin-left: -25px;
-    margin-top: -10px;
 }
+
 .new-item {
     align-items: center;
     background-color: #AB9C92;
@@ -42,8 +48,8 @@
     position: relative;
     text-align: center;
     text-decoration: none;
-    margin-left: 615px;
-    margin-top: -50px;
+    top: -75px;
+    left: 590px;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;

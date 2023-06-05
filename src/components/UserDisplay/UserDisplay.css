@@ -72,13 +72,13 @@
 }
 
 
-.followButton>img {
+.logoutButton>img {
   width: 80px; 
   height: 65px; 
   margin-top: 20px;
 }
 
-.followButton {
+.logoutButton {
   font-family: 'Abril Fatface', cursive;
   background: none;
   border: none;
@@ -88,24 +88,24 @@
   margin-left: 20px;
 }
 
-.followButton:hover .FollowIcon {
+.logoutButton:hover .FollowIcon {
   transform: scale(1.2);
 }
-.followButton:hover h5 {
+.logoutButton:hover h5 {
   color: #585656; 
 }
 .editButton:hover h5 {
   color: #585656; 
 }
 
-.followButton>h5{
+.logoutButton>h5{
   text-align: center;
   font-size: 15px;
   letter-spacing: 5px;
   margin-top: 50px;
 }
 
-.followButton {
+.logoutButton {
   display: flex;
   align-items: center;
   margin-top: 220px;
@@ -113,7 +113,7 @@
 
 
 
-.followButton h5 {
+.logoutButton h5 {
   margin-left: 10px; 
   font-size: 15px;
   letter-spacing: 5px;

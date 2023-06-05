@@ -54,8 +54,7 @@ const UserAuth = () => {
     // If the user doesn't want to register --> dispatch loginUser action with userData as the payload
           dispatch(loginUser(userData));
         }
-
-        navigate('/explore'); // Redirect to the explore page after successful login or registration
+        navigate("/explore");  // Redirect to the explore page after successful login or registration
       };
 
       return (

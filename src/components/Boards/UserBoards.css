@@ -1,29 +1,47 @@
-.BoardsDisplay {
+.UserBoardsDisplay{
     font-family: 'Abril Fatface', cursive;
     display: flex;
     flex-direction: column;
     position: fixed;
-    margin: 0px 75px;
+    top: 380px;
+    left: 350px;
+    height: 100vh;
+    width: 97vh;
+}
+.UserBoardsDisplay>h2 {
+  font-size: 25px;
+  letter-spacing: 5px;
+  top: -100px;
 }
 
-.Boards {
+.UserBoards {
     display: flex;
     flex-direction: row;
-    border: 4px double rgb(43, 42, 42);
+    height: 270px;
+    border: 4px groove rgb(43, 42, 42);
     border-radius: 20px;
-    gap: 1rem;
-    padding: 80px 0px 20px 0px;
-    margin: 5px -20px;
-    width: 850px;
-    position: fixed;
+    gap: 3rem;
+    padding: 80px 0px 0px 0px;
+    overflow: scroll;
+    overflow-y: hidden;
 }
 
-.BoardsDisplay>h2 {
-    font-size: 25px;
-    letter-spacing: 5px;
-    margin-left: 0px;
-    margin-top: 30px;
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(128, 116, 116);
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(42, 26, 26);
+}
+
+
 .new-board {
     align-items: center;
     background-color: #AB9C92;
@@ -42,8 +60,8 @@
     position: relative;
     text-align: center;
     text-decoration: none;
-    margin-left: 650px;
-    margin-top: -60px;
+    top: -330px;
+    left: 650px;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;

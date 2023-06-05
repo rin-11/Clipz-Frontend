@@ -11,6 +11,7 @@ const NavBar = (props) => {
     <div className="NavBar">
       <Link to="/explore">Explore</Link>
       <Link to={`/profile/${userId}`}>Profile</Link>
+      <Link to="/inbox">Inbox</Link>
     </div>
   );
 };
