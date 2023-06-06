@@ -6,7 +6,6 @@ import Board from '../Boards/Board/Board'
 const UserBoards = () => {
     return (
         <div className="UserBoardsDisplay">
-          <h2>Style Boards</h2>
         <div className="UserBoards">
         {BoardsData.map((board, id)=>{
             return <Board data={board} id={id}/>

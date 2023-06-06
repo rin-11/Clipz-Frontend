@@ -6,7 +6,6 @@ import InvItem from '../Inventory/InvItem/InvItem'
 const InvDisplay = () => {
   return (
     <div className="InvDisplay">
-      <h2>Closet Inventory</h2>
     <div className="Inventory">
     {InventoryData.map((item, id)=>{
         return <InvItem data={item} id={id}/>
