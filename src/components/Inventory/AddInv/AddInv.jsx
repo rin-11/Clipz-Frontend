@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './AddInv.css';
 
 const AddInv = ({ onPreview }) => {
@@ -8,17 +8,14 @@ const AddInv = ({ onPreview }) => {
   const [category, setCategory] = useState('');
   const [ownItem, setOwnItem] = useState(true);
 
-// useRef (React hook) used to create a reference for the file input element
-  const addInvRef = useRef();
-
 // event handler function triggered when the user selects an image file
   const onAddInvChange = (event) => {
-    // checks if a file was selected & sets the addInvItem state to an object 
+    // check if a file was selected & sets the addInvItem state to an object 
     if (event.target.files && event.target.files[0]) {
       let item = event.target.files[0];
       setAddInvItem({
         item: URL.createObjectURL(item),
-        imageUrl: null, // Placeholder for the image URL
+        imageUrl: null,
       });
     }
   };
@@ -30,38 +27,43 @@ const AddInv = ({ onPreview }) => {
       category,
       ownItem,
       // stored image URL
-      image: addInvItem.imageUrl,
+      imageUrl: addInvItem.imageUrl,
     };
     console.log(newItem);
 
-    resetAddInv(); // reset form
-  };
+    resetAddInv();
+  }; // reset form
 
   const resetAddInv = () => {
     setAddInvItem(null);
     setName('');
     setCategory('');
     setOwnItem(true);
-    addInvRef.current.value = '';
   };
+
+  // Call the onPreview function from the parent component
   const handlePreview = () => {
-    onPreview(); // Call the onPreview function from the parent component
+    onPreview();
+  };
+
+  const handleAddInventoryClick = () => {
+    document.getElementById('addInvInput').click();
   };
 
   return (
     <div className="AddInv">
       {!addInvItem && (
         <div className="uploadButton">
-          <label htmlFor="addInvItem" className="new-item" onClick={handlePreview}>
+          <button className="new-item" onClick={handleAddInventoryClick }>
             Add Inventory
-            <input
-              type="file"
-              id="addInvItem"
-              accept="image/*"
-              onChange={onAddInvChange}
-              style={{ display: 'none' }}
-            />
-          </label>
+          </button>
+          <input
+            id="addInvInput"
+            type="file"
+            accept="image/*"
+            onChange={onAddInvChange}
+            style={{ display: 'none' }}
+          />
         </div>
       )}
       {addInvItem && (
@@ -70,7 +72,7 @@ const AddInv = ({ onPreview }) => {
             <button className="upload" onClick={handleAddInv}>
               Upload to Closet
             </button>
-            <button className="cancel" onClick={() => setAddInvItem(null)}>
+            <button className="cancel" onClick={resetAddInv}>
               Cancel
             </button>
             <img src={addInvItem.item} alt="" />
@@ -104,7 +106,5 @@ const AddInv = ({ onPreview }) => {
     </div>
   );
 };
-
-
 
 export default AddInv;
