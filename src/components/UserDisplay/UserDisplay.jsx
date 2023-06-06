@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './UserDisplay.css'
 import ProfilePhoto from '../../assets/propic.png'
 import Edit from '../../assets/edit.png'
 import Follow from '../../assets/search.png'
+
 
 const UserDisplay = () => {
   return (
     <div className="User">
     <div className="UserInfo">
         <div className="Propic">
-            {/* this will be an upload link to add pro pic */}
             <img src= {ProfilePhoto} alt="user profile photo"/>
         </div>
         <div className="ProfileName">
@@ -43,4 +43,4 @@ const UserDisplay = () => {
   )
 }
 
-export default UserDisplay
+export default UserDisplay;

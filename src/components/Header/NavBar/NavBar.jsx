@@ -1,17 +1,16 @@
 import React from "react";
-import './NavBar.css'
+import "./NavBar.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
-const NavBar = (props) => {
-  const authData = useSelector((state) => state.authData);
-  const userId = authData?.authData?._id;
+const NavBar = () => {
+  // get the user ID stored locally in the user profile
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   return (
     <div className="NavBar">
-      <Link to="/explore">Explore</Link>
-      <Link to={`/profile/${userId}`}>Profile</Link>
-      <Link to="/inbox">Inbox</Link>
+      <Link to={`/explore/${user?.user._id}`}>Explore</Link>
+      <Link to={`/profile/${user?.user._id}`}>Profile</Link>
+      <Link to={`/inbox/${user?.user._id}`}>Inbox</Link>
     </div>
   );
 };

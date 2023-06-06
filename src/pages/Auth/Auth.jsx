@@ -1,62 +1,57 @@
 // import useState from react
 import React, { useState } from "react";
 import "./Auth.css";
-
 // import auth functions
 import { registerUser, loginUser } from '../../actions/AuthAction'
-
 // import React Redux hooks
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Explore from "../Explore/Explore";
+
 
 
 const UserAuth = () => {
-    // handle register/login states -- set inputs to null to start
-    const initialState = {
+    const initialState = { // handle register/login states -- set inputs to null to start
         email:"", username:"",  password:"", confirmpassword:""
     };
-    const loading = useSelector((state) => state.authData.loading);
+    const loading = useSelector((state) => state.auth.loading);
     const navigate = useNavigate();
     // dipatch actions from Redux
     const dispatch = useDispatch();
     // set register to false to user is first prompted to log in
     const [register, setRegister] = useState(false);
-
-    // userData
-    const [userData, setUserData] = useState(initialState);
-
+    // data retreived from user forms
+    const [data, setData] = useState(initialState);
     // Check password and confirmpassword are the same value when user hits regsiser
     const [confirmPassword, setConfirmPassword] = useState(true);
-
     // Reset input forms 
-    const resetForms=()=>{
-              // sets confirmPassword back to true
+    const resetForms = () => {
         setConfirmPassword(true);
-        setUserData(initialState);
+        setData(initialState);
     };
-
     // handle user input changes when user hits submit
     const handleChange = (e)=> { // update the userData state with the new values from inputs
-        setUserData({...userData, [e.target.name]: e.target.value})
+        setData({...data, [e.target.name]: e.target.value})
     };
-
-     // Form Submission --
-     const handleSubmit = (e) => { 
-        setConfirmPassword(true);
-        e.preventDefault(); // page will not redirect onSubmit
-        if (register) { // Check if the user wants to register --> if the password & confirm password are the same... 
-          userData.password === userData.confirmpassword
-            // If they are --> dispatch registerUser action with userData as the payload
-            ? dispatch(registerUser(userData))
-            // If they aren't --> sets confirmPassword to false 
-            : setConfirmPassword(false); 
-        } else {
-    // If the user doesn't want to register --> dispatch loginUser action with userData as the payload
-          dispatch(loginUser(userData));
+    // Form Submission --
+    const handleSubmit = async (e) => {
+      setConfirmPassword(true); // page will not redirect onSubmit
+      e.preventDefault();
+      let userData;
+      if (register) { // check passwords
+        if (data.password === data.confirmpassword) {
+        // if passwords match --
+          // dispatch the 'registerUser' action with form data & assing userData variable
+          userData = await dispatch(registerUser(data));
+          // check if the 'userData' object exists and if it has a 'user' property and nav to explore page
+          if (userData?.user) navigate(`/explore/${userData.user._id}`);
+        } else { // if passwords do not match
+          setConfirmPassword(false);
         }
-        navigate("/explore");  // Redirect to the explore page after successful login or registration
-      };
+      } else { // If the user doesn't want to register --> dispatch loginUser action with data as the payload
+        userData = await dispatch(loginUser(data));
+        if (userData?.user) navigate(`/explore/${userData.user._id}`);
+      }
+    };
 
       return (
         <div className="UserAuth">
@@ -74,7 +69,7 @@ const UserAuth = () => {
                     placeholder="Email"
                     className="userInput"
                     name="email"
-                    value={userData.email}
+                    value={data.email}
                     onChange={handleChange}
                   />
                   <input
@@ -82,7 +77,7 @@ const UserAuth = () => {
                     placeholder="Username"
                     className="userInput"
                     name="username"
-                    value={userData.username}
+                    value={data.username}
                     onChange={handleChange}
                   />
                 </div>
@@ -93,7 +88,7 @@ const UserAuth = () => {
                     placeholder="Email"
                     className="userInput"
                     name="email"
-                    value={userData.email}
+                    value={data.email}
                     onChange={handleChange}
                   />
                 </div>
@@ -105,7 +100,7 @@ const UserAuth = () => {
                   className="userInput"
                   name="password"
                   placeholder="Password"
-                  value={userData.password}
+                  value={data.password}
                   onChange={handleChange}
                 />
                 {/* only confirm password if register is true */}
@@ -115,7 +110,7 @@ const UserAuth = () => {
                     className="userInput"
                     name="confirmpassword"
                     placeholder="Confirm Password"
-                    value={userData.confirmpassword}
+                    value={data.confirmpassword}
                     onChange={handleChange}
                   />
                 )}

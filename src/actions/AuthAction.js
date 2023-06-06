@@ -1,32 +1,37 @@
 import * as AuthApi from '../api/AuthRequest'
 
-// Contain Redux actions related to authentication (loginUser & registerUser) 
-// Actions make API calls & dispatch actions to the Redux store with a payload containing the userData
 
-export const loginUser = (formData, navigate) => async(dispatch) => {
-    dispatch({type: "AUTH_START"})
-    try{
-        const {userData} = await AuthApi.loginUser(formData)
-        dispatch({type: "AUTH_SUCCESS", userData: userData})
-        console.log("Log In Successful");
-    }
-    catch (error) {
-        console.log(error)
-        dispatch({type: "AUTH_FAILURE"})
-        console.log("Log In Error");
-    }
-}
+// Export the 'loginUser' action creator with an async function that takes the form data and dispatches as parameters:
+export const loginUser = (formData) => async (dispatch) => {
+  dispatch({ type: "AUTH_START" });
+  try {
+    // make an API call to the loginUser endpoint using form data -- destructure to extract the 'data' property from response
+    const { data } = await AuthApi.loginUser(formData);
 
-export const registerUser = (formData, navigate) => async(dispatch) => {
-    dispatch({type: "AUTH_START"})
-    try{
-        const {userData} = await AuthApi.registerUser(formData)
-        dispatch({type: "AUTH_SUCCESS", userData: userData})
-        console.log("Register User Successful");
-    }
-    catch (error) {
-        console.log(error)
-        dispatch({type: "AUTH_FAILURE"})
-        console.log("Register Error");
-    }
-}
+    // notify the reducer to update the state with the user data
+    dispatch({ type: "AUTH_SUCCESS", userData: data });
+    console.log("Log In Successful");
+    return data;  
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "AUTH_FAIL" });
+    console.log("Log In Error");
+  }
+};
+
+// Export the 'registerUser' action creator with an async function that takes the form data and dispatches as parameters:
+export const registerUser = (formData) => async (dispatch) => {
+  dispatch({ type: "AUTH_START" });
+  try {
+    // make an API call to the loginUser endpoint using form data -- destructure to extract the 'data' property from response
+    const { data } = await AuthApi.registerUser(formData);
+  // notify the reducer to update the state with the user data
+    dispatch({ type: "AUTH_SUCCESS", userData: data });
+    console.log("Register User Successful");
+    return data; 
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "AUTH_FAIL" });
+    console.log("Register Error");
+  }
+};

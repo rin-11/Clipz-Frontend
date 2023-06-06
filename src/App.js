@@ -9,23 +9,26 @@ import Profile from './pages/Profile/Profile';
 import SearchBar from './components/Header/SearchBar/SearchBar';
 
 function App() {
-  const user = useSelector((state) => state.authData.authData);
+  // retrieve the 'profile' item from the localStorage and parse it from JSON to a JS object
+  const user = JSON.parse(localStorage.getItem('profile'));
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/"
-          element={user ? <Explore />: <Navigate to="../auth"/>}
-        />
-        <Route path="/profile/:id"
-          element={user ? <Profile/> : <Navigate to="../auth" />} 
-        />
-        <Route path="/explore" 
-        element={user ? <Explore />: <Navigate to="../auth"/>} 
-        />
-        <Route path="/auth" element={user ? <Navigate to="/explore" />:<UserAuth />} />
-        <Route path="/search" element={<SearchBar />} />
+        {user ? (
+          <>
+            <Route path="/" element={<Explore />} />
+            <Route path="/auth" element={<Explore />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/explore/:id" element={<Explore />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Navigate to="/auth" />} />
+            <Route path="/auth" element={<UserAuth />} />
+          </>
+        )}
       </Routes>
     </div>
   );
