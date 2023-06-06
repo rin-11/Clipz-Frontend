@@ -1,83 +1,18 @@
 .InvDisplay {
     font-family: 'Abril Fatface', cursive;
+    border: 4px groove rgb(43, 42, 42);
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 190px;
-    left: 370px;
-    height: 100vh;
+    top: 150px;
+    left: 350px;
+    height: 41vh;
     width: 92vh;
     overflow: scroll;
     overflow-y: hidden;
 }
 
-.Inventory {
-    display: flex;
-    flex-direction: row;
-    border: 4px groove rgb(43, 42, 42);
-    border-radius: 20px;
-    gap: 1rem;
-    padding: 80px 0px 20px 0px; 
-    margin: -30px -20px;
-    width: 92vh;
-    height: 30vh;
-    position: fixed;
-    overflow: scroll;
-    overflow-y: auto;
-}
 
-
-.new-item {
-    align-items: center;
-    background-color: #AB9C92;
-    border: 2px solid #111;
-    border-radius: 8px;
-    box-sizing: border-box;
-    color: #111;
-    cursor: pointer;
-    display: flex;
-    font-family: 'Abril Fatface', cursive;
-    letter-spacing: 5px;
-    font-size: 15px;
-    height: 35px;
-    max-width: 100%;
-    padding: 15px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    top: -6px;
-    left: 590px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  
-  .new-item:after {
-    background-color: #111;
-    border-radius: 8px;
-    content: "";
-    display: block;
-    height: 40px;
-    left: 0;
-    width: 100%;
-    position: absolute;
-    top: -2px;
-    transform: translate(8px, 8px);
-    transition: transform .2s ease-out;
-    z-index: -1;
-  }
-  
-  .new-item:hover:after {
-    transform: translate(0, 0);
-  }
-  
-  .new-item:active {
-    background-color: #bcb3ae;
-    outline: 0;
-  }
-  
-  .new-item:hover {
-    outline: 0;
-  }
 
 

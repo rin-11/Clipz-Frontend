@@ -1,21 +1,21 @@
-import React from 'react'
-import './InvDisplay.css'
-import { InventoryData } from '../../seedData/inventoryData'
-import InvItem from '../Inventory/InvItem/InvItem'
+import React, { useState } from 'react';
+import './InvDisplay.css';
+
+import AddInv from './AddInv/AddInv';
+import UserInventory from './UserInventory/UserInventory';
 
 const InvDisplay = () => {
+  const [isPreviewing, setIsPreviewing] = useState(false);
+
+  const handlePreview = () => {
+    setIsPreviewing(true);
+  };
   return (
     <div className="InvDisplay">
-    <div className="Inventory">
-    {InventoryData.map((item, id)=>{
-        return <InvItem data={item} id={id}/>
-    })}
+      {!isPreviewing && <AddInv onPreview={handlePreview} />}
+      {!isPreviewing && <UserInventory />}
     </div>
-    <div className="uploadButton">
-        <button class="new-item" role="button">Add Inventory</button>
-    </div>
-</div>
-  )
-}
+  );
+};
 
-export default InvDisplay
+export default InvDisplay;

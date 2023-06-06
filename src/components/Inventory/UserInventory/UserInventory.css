@@ -1,0 +1,13 @@
+
+.UserInventory {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 70px 0px 0px 0px; 
+    margin: 0px 0px;
+    width: 92vh;
+    height: 30vh;
+    position: relative;
+    overflow: scroll;
+    overflow-y: hidden;
+}
