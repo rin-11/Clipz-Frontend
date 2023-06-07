@@ -1,120 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
-.UserInfo {
+.User {
     font-family: 'Abril Fatface', cursive;
     display: inline-block;
     border: 4px double rgb(43, 42, 42);
     border-radius: 50px;
     padding: 20px 20px;
     text-align: center;
-    margin: 80px 20px;
     position: fixed;
-    left: 0;
-    top: 50%;
+    left: 20px;
+    height: 450px;
+    top: 550px;
     transform: translateY(-50%);
   }
-
-.Propic>img {
-    width: 200px; 
-    height: 200px; 
-}
-.editButton>img{
-    width: 40px; 
-    height: 40px;
-}
-
-.ProfileName {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: -30px;
-    transition: transform 0.3s ease;
-}
-.ProfileName>img {
-  width: 50px; 
-  height: 40px; 
-}
-
-.ProfileName>h2 {
-    font-size: 40px;
-}
-.ProfileName>h3 {
-  margin-top: -25px;
-  font-size: 20px;
-  letter-spacing: 8px;
-}
-
-.editButton>button{
-  font-family: 'Abril Fatface', cursive;
-    background: none;
-    border: none;
-    display: flex;
-    cursor: pointer;
-    margin-top: -15px;
-}
-
-.ProfileRow {
-    display: flex;
-    margin-top: 0px;   
-  }
-
-  .editButton>h5{
-    margin-top: 10px;
-    text-align: center;
-    margin-left: 10px;
-    font-size: 15px;
-    letter-spacing: 5px;
-  }
-
-.ProfileName:hover .editIcon {
-    transform: scale(1.2);
-}
-
-
-.logoutButton>img {
-  width: 80px; 
-  height: 65px; 
-  margin-top: 20px;
-}
-
-.logoutButton {
-  font-family: 'Abril Fatface', cursive;
-  background: none;
-  border: none;
-  display: flex;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  margin-left: 20px;
-}
-
-.logoutButton:hover .FollowIcon {
-  transform: scale(1.2);
-}
-.logoutButton:hover h5 {
-  color: #585656; 
-}
-.editButton:hover h5 {
-  color: #585656; 
-}
-
-.logoutButton>h5{
-  text-align: center;
-  font-size: 15px;
-  letter-spacing: 5px;
-  margin-top: 50px;
-}
-
-.logoutButton {
-  display: flex;
-  align-items: center;
-  margin-top: 220px;
-}
-
-
-
-.logoutButton h5 {
-  margin-left: 10px; 
-  font-size: 15px;
-  letter-spacing: 5px;
-}

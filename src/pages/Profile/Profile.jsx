@@ -15,7 +15,7 @@ const Profile = () => {
       <FriendsDisplay/>
       <TrendsDisplay/>
       <InvDisplay/>
-      <UserBoards/>
+      <UserBoards/> 
     </div>
   )
 }
