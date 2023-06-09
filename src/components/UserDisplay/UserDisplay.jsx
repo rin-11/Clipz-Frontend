@@ -1,12 +1,12 @@
 import React from 'react'
 import './UserDisplay.css'
-import EditUser from './UserInfo/UserInfo'
+import UserInfo from './UserInfo/UserInfo'
 
 
 const UserDisplay = () => {
   return (
     <div className="User">
-    <EditUser/>
+    <UserInfo/>
     </div>
   )
 }

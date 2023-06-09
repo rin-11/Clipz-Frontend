@@ -14,8 +14,8 @@ const Profile = () => {
       <UserDisplay/>
       <FriendsDisplay/>
       <TrendsDisplay/>
-      <InvDisplay/>
-      <UserBoards/> 
+      {/* <InvDisplay/>
+      <UserBoards/>  */}
     </div>
   )
 }
