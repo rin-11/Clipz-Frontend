@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from "react";
 import './AddInv.css';
 
+
 const AddInv = ({ onPreview }) => {
-// create state variables set to null
+  // get user info
+  const user = JSON.parse(localStorage.getItem("profile"));
+  const userId = user?.user?._id;
+
+  // useRef hook to reference values later on
+  const inputWords = useRef();
+  const imageRef = useRef();
+
+  // create state variables set to null
   const [addInvItem, setAddInvItem] = useState(null);
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
@@ -12,24 +21,30 @@ const AddInv = ({ onPreview }) => {
   const onAddInvChange = (event) => {
     // check if a file was selected & sets the addInvItem state to an object 
     if (event.target.files && event.target.files[0]) {
-      let item = event.target.files[0];
-      setAddInvItem({
-        item: URL.createObjectURL(item),
-        imageUrl: null,
-      });
+      let image = event.target.files[0];
+      setAddInvItem(image);
     }
   };
 
-  const handleAddInv = () => {
+  const handleAddInv = (event) => {
+    event.preventDefault();
     // event handler function triggered when the user clicks the upload button creating object
     const newItem = {
-      name,
-      category,
-      ownItem,
-      // stored image URL
-      imageUrl: addInvItem.imageUrl,
+      userId,
+      name: inputWords.current.value,
+      category: inputWords.current.value,
+      ownItem
     };
+
+    // store images locally and call based on saved fileName and data 
     console.log(newItem);
+    const data = new FormData();
+    const fileName = Date.now() + addInvItem.name;
+    data.append("name", fileName);
+    data.append("file", addInvItem);
+    newItem.image = fileName;
+    console.log(newItem);
+    
 
     resetAddInv();
   }; // reset form
@@ -75,19 +90,22 @@ const AddInv = ({ onPreview }) => {
             <button className="cancel" onClick={resetAddInv}>
               Cancel
             </button>
-            <img src={addInvItem.item} alt="" />
+            <img src={URL.createObjectURL(addInvItem)} alt="" />
             <div>
               <input
                 type="text"
                 placeholder="Name"
+                required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                ref={inputWords}
               />
               <input
                 type="text"
                 placeholder="Category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+                ref={inputWords}
               />
             </div>
           </div>
