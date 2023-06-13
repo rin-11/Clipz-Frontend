@@ -1,4 +1,4 @@
-import * as AuthApi from '../api/AuthRequest'
+import * as AuthRequest from '../api/AuthRequest'
 
 
 // Export the 'loginUser' action creator with an async function that takes the form data and dispatches as parameters:
@@ -6,7 +6,7 @@ export const loginUser = (formData) => async (dispatch) => {
   dispatch({ type: "AUTH_START" });
   try {
     // make an API call to the loginUser endpoint using form data -- destructure to extract the 'data' property from response
-    const { data } = await AuthApi.loginUser(formData);
+    const { data } = await AuthRequest.loginUser(formData);
 
     // notify the reducer to update the state with the user data
     dispatch({ type: "AUTH_SUCCESS", userData: data });
@@ -24,7 +24,7 @@ export const registerUser = (formData) => async (dispatch) => {
   dispatch({ type: "AUTH_START" });
   try {
     // make an API call to the loginUser endpoint using form data -- destructure to extract the 'data' property from response
-    const { data } = await AuthApi.registerUser(formData);
+    const { data } = await AuthRequest.registerUser(formData);
   // notify the reducer to update the state with the user data
     dispatch({ type: "AUTH_SUCCESS", userData: data });
     console.log("Register User Successful");

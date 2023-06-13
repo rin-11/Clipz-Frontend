@@ -1,21 +1,26 @@
 import React, { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { uploadImage, uploadInventory } from "../../../actions/UploadAction";
+
 import './AddInv.css';
 
 
 const AddInv = ({ onPreview }) => {
+  const dispatch = useDispatch();
+
   // get user info
   const user = JSON.parse(localStorage.getItem("profile"));
   const userId = user?.user?._id;
 
   // useRef hook to reference values later on
-  const inputWords = useRef();
+  const nameRef = useRef();
+  const catRef = useRef();
   const imageRef = useRef();
 
   // create state variables set to null
   const [addInvItem, setAddInvItem] = useState(null);
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
-  const [ownItem, setOwnItem] = useState(true);
 
 // event handler function triggered when the user selects an image file
   const onAddInvChange = (event) => {
@@ -29,22 +34,24 @@ const AddInv = ({ onPreview }) => {
   const handleAddInv = (event) => {
     event.preventDefault();
     // event handler function triggered when the user clicks the upload button creating object
-    const newItem = {
+    const newInventory = {
       userId,
-      name: inputWords.current.value,
-      category: inputWords.current.value,
-      ownItem
+      name: nameRef.current.value,
+      category: catRef.current.value,
     };
 
     // store images locally and call based on saved fileName and data 
-    console.log(newItem);
+    console.log(newInventory);
     const data = new FormData();
     const fileName = Date.now() + addInvItem.name;
     data.append("name", fileName);
     data.append("file", addInvItem);
-    newItem.image = fileName;
-    console.log(newItem);
-    
+    newInventory.image = fileName;
+
+    console.log(newInventory); // new item object 
+    dispatch(uploadImage(data)); // upload image action
+    dispatch(uploadInventory(newInventory)); // upload inventory action
+
 
     resetAddInv();
   }; // reset form
@@ -53,7 +60,6 @@ const AddInv = ({ onPreview }) => {
     setAddInvItem(null);
     setName('');
     setCategory('');
-    setOwnItem(true);
   };
 
   // Call the onPreview function from the parent component
@@ -98,26 +104,16 @@ const AddInv = ({ onPreview }) => {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                ref={inputWords}
+                ref={nameRef}
               />
               <input
                 type="text"
                 placeholder="Category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                ref={inputWords}
+                ref={catRef}
               />
             </div>
-          </div>
-          <div className="ownItem">
-            <label>
-              Check the box if you already own this item:
-              <input
-                type="checkbox"
-                checked={ownItem}
-                onChange={() => setOwnItem(!ownItem)}
-              />
-            </label>
           </div>
         </div>
       )}
