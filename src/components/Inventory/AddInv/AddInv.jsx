@@ -6,11 +6,12 @@ import './AddInv.css';
 
 
 const AddInv = ({ onPreview }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // dispatch function to allow actions
 
   // get user info
   const user = JSON.parse(localStorage.getItem("profile"));
   const userId = user?.user?._id;
+
 
   // useRef hook to reference values later on
   const nameRef = useRef();

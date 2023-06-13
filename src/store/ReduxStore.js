@@ -4,11 +4,13 @@ import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import authReducer from '../reducers';
+import authReducer from '../reducers/AuthReducer';
+import inventoryReducer from '../reducers/InventoryReducer';
 
 // combine all reducers used (I will need a reducer for uploading)
 const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  inventory: inventoryReducer
 });
 
 const persistConfig = {
