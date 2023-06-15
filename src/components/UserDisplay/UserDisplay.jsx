@@ -2,7 +2,6 @@ import React from 'react'
 import './UserDisplay.css'
 import UserInfo from './UserInfo/UserInfo'
 
-
 const UserDisplay = () => {
   return (
     <div className="User">

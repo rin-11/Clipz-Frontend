@@ -15,8 +15,8 @@
     padding: 2px;
     margin: 5px;;
     text-align: center;
-    font-size: 18px;
-    color: brown;
+    font-size: 20px;
+    color: rgb(41, 8, 8);
 }
 
 .cancel{
@@ -37,6 +37,7 @@
     left: 1rem; 
     letter-spacing: 2px;
     touch-action: manipulation;
+    transition: transform 0.3s ease;
   }
 
 
@@ -58,8 +59,16 @@
     right: 1rem; 
     letter-spacing: 2px;
     touch-action: manipulation;
+    transition: transform 0.3s ease;
   }
-
+  .upload:hover {
+    background-color: #b5aba5;
+    transform: scale(1.1);
+  }
+  .cancel:hover {
+    background-color: #b5aba5;
+    transform: scale(1.1);
+  }
 
 .previewItem{
     position: absolute;
@@ -85,11 +94,11 @@ img{
     letter-spacing: 5px;
     justify-content: center;
     font-size: 15px;
-    height: 40px;
+    height: 45px;
     max-width: 30%;
     padding: 15px;
-    left: 35rem; 
-    top: 9px;
+    left: 33rem; 
+    top: 5px;
     position: relative;
     text-align: center;
     text-decoration: none;

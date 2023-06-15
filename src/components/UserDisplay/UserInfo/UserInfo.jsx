@@ -85,7 +85,7 @@ const UserInfo = () => {
       </div>
       <div className="ProfileName">
         <h2>{isEditing ? <EditUser onSave={handleSave} onCancel={handleCancel} /> : displayName}</h2>
-        <h3>{username}</h3>
+        <h3> {!isEditing && username}</h3>
         <div className="ProfileButtons">
           <div className="editButton">
             {!isEditing && (
@@ -95,14 +95,15 @@ const UserInfo = () => {
               </button>
             )}
           </div>
+          {!isEditing && (
           <div className="logoutButton">
    
               <button className="logoutButton"onClick={handleLogout}>
                 <img src={Logout} alt="Logout" className="logoutIcon" />
                 <h4>Logout</h4>
               </button>
-
           </div>
+          )}
         </div>
       </div>
     </div>

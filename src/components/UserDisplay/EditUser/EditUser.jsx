@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './EditUser.css';
 const EditUser = ({ onSave, onCancel }) => {
   const [displayName, setDisplayName] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
@@ -23,19 +23,20 @@ const EditUser = ({ onSave, onCancel }) => {
 
   return (
     <div className="EditUser">
-      <div className="modalContainer">
-        <div className="modalContent">
-          <h2>Edit User Profile</h2>
+        <div className="EditUserDisplay">
+          <h2>Edit Profile</h2>
           <form>
-            <div className="formGroup">
-              <label htmlFor="displayName">Display Name:</label>
+            <div className="editDisplayNameForm">
+              <label htmlFor="displayName">Enter Display Name:</label>
               <input type="text" id="displayName" name="displayName" onChange={handleInputChange} />
             </div>
-            <div className="formGroup">
-              <label htmlFor="profilePicture">Profile Picture:</label>
-              <input type="file" id="profilePicture" name="profilePicture" onChange={handleInputChange} />
-            </div>
-            <div className="buttonGroup">
+            <div className="editProPicForm">
+              <label htmlFor="profilePicture" className="file-upload">Upload Profile Photo</label>
+              <input type="file" id="profilePicture" name="profilePicture" onChange={handleInputChange} style={{display: 'none'}} />
+          </div>
+
+ 
+            <div className="editButtons">
               <button type="button" className="saveButton" onClick={handleSubmit}>
                 Save
               </button>
@@ -45,7 +46,6 @@ const EditUser = ({ onSave, onCancel }) => {
             </div>
           </form>
         </div>
-      </div>
     </div>
   );
 };
