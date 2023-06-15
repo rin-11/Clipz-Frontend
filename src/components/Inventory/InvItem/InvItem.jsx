@@ -1,22 +1,23 @@
-import React from 'react'
-import './InvItem.css'
+import React from 'react';
+import './InvItem.css';
+import axios from "axios";
 
-// Define a destructured prop 'data', which is passed as an object to the component
-const InvItem = ({data}) => {
-  // get user info
-  const user = JSON.parse(localStorage.getItem("profile"));
-  const userId = user?.user?._id;
+const InvItem = ({ data }) => {
+  // Construct the image URL
+  const baseURL= process.env.REACT_APP_BASE_URL 
+  const imageUrl = baseURL + `/inventory/${data.image}`;
 
   return (
     <div className="InvItem">
-        <img src={data.image} alt="InvItem" />
-        <div className="details">
-            <span><b>{data.name}</b></span>
-            <span> {data.category}</span>
-        </div>
+      <img src={imageUrl} alt="InvItem" />
+      <div className="details">
+        <span>
+          <b>{data.name}</b>
+        </span>
+        <span> {data.category}</span>
+      </div>
     </div>
-    
-  )
-}
+  );
+};
 
-export default InvItem
+export default InvItem;
