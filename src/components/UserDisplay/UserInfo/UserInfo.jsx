@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import defaultProfilePicture from '../../../assets/propic.png';
 import Edit from '../../../assets/edit.png';
-import Follow from '../../../assets/search.png';
+import Logout from '../../../assets/search.png';
 import './UserInfo.css';
 import EditUser from '../EditUser/EditUser';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { getUser, updateUser } from '../../../api/UserRequest';
+import { logoutUser } from '../../../actions/AuthAction';
+import { useNavigate } from 'react-router-dom'; // for routing to auth page 
+
 
 const UserInfo = () => {
-   // local state and hooks
+  // // initialize useNavigate & useDispatch
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch()
+  // Obtain the userId from the authData object
   const user = JSON.parse(localStorage.getItem("profile"));
-  const userId = user?.user?._id;  // Obtain the userId from the authData object
-
+  const userId = user?.user?._id;  
+  
   
   const [userData, setUserData] = useState(null); // stores the current display name & is initialized with  'Display Name' value -- still need to connect to MongoDB user info for storage
   const [isEditing, setIsEditing] = useState(false); // editing mode false to start until button pressed
@@ -20,6 +26,12 @@ const UserInfo = () => {
     // Fetch user data and update state
     fetchUserData();
   }, []);
+
+    const handleLogout = ()=> {
+    dispatch(logoutUser()) // logout action from auth actions
+    navigate('/auth');  // Redirect user to the /auth page
+  }
+
 
   // Function to fetch user data
   const fetchUserData = async () => {
@@ -74,14 +86,22 @@ const UserInfo = () => {
       <div className="ProfileName">
         <h2>{isEditing ? <EditUser onSave={handleSave} onCancel={handleCancel} /> : displayName}</h2>
         <h3>{username}</h3>
-        <div className="ProfileRow">
+        <div className="ProfileButtons">
           <div className="editButton">
             {!isEditing && (
-              <button className="editButton" onClick={handleEditClick}>
-                <h5>Edit Profile</h5>
+              <button className="editButton" onClick={handleEditClick}>   
                 <img src={Edit} alt="edit user information" className="editIcon" />
+                <h5>Edit Profile</h5>
               </button>
             )}
+          </div>
+          <div className="logoutButton">
+   
+              <button className="logoutButton"onClick={handleLogout}>
+                <img src={Logout} alt="Logout" className="logoutIcon" />
+                <h4>Logout</h4>
+              </button>
+
           </div>
         </div>
       </div>
@@ -90,3 +110,4 @@ const UserInfo = () => {
 };
 
 export default UserInfo;
+

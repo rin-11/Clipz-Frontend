@@ -1,12 +1,12 @@
 
 
 .Propic>img {
-    width: 200px; 
-    height: 200px; 
+    width: 150px; 
+    height: 150px; 
 }
 .editButton>img{
-    width: 40px; 
-    height: 40px;
+    width: 45px; 
+    height: 50px;
 }
 
 .ProfileName {
@@ -14,7 +14,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
 }
 .ProfileName>img {
   width: 50px; 
@@ -28,6 +27,12 @@
   font-size: 20px;
   letter-spacing: 8px;
 }
+.ProfileButtons>div{
+  padding: 5px;
+}
+.editButton{
+  transition: transform 0.3s ease;
+}
 
 .editButton>button{
   font-family: 'Abril Fatface', cursive;
@@ -37,27 +42,26 @@
     cursor: pointer;
 }
 
-.ProfileRow {
-    display: flex;
-  }
-
-  .editButton>h5{
-    margin-top: 10px;
-    text-align: center;
-    margin-left: 10px;
+.editButton>h5{
     font-size: 15px;
     letter-spacing: 5px;
+    margin-left: 10px;
   }
 
-.ProfileName:hover .editIcon {
-    transform: scale(1.2);
+
+.editButton:hover h5 {
+  color: #585656; 
 }
 
-
+.logoutButton>h4{
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 5px;
+  margin-left: 15px;
+}
 .logoutButton>img {
-  width: 80px; 
-  height: 65px; 
-  margin-top: 20px;
+  width: 60px; 
+  height: 60px; 
 }
 
 .logoutButton {
@@ -66,37 +70,19 @@
   border: none;
   display: flex;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  margin-left: 20px;
 }
 
-.logoutButton:hover .FollowIcon {
-  transform: scale(1.2);
-}
-.logoutButton:hover h5 {
+.logoutButton:hover {
   color: #585656; 
+  transition: transform 0.3s ease
 }
-.editButton:hover h5 {
+.logoutButton:hover>img {
+  transform: scale(1.1);
+}
+.editButton:hover {
   color: #585656; 
+  transition: transform 0.3s ease
 }
-
-.logoutButton>h5{
-  text-align: center;
-  font-size: 15px;
-  letter-spacing: 5px;
-  margin-top: 50px;
-}
-
-.logoutButton {
-  display: flex;
-  align-items: center;
-  margin-top: 220px;
-}
-
-
-
-.logoutButton h5 {
-  margin-left: 10px; 
-  font-size: 15px;
-  letter-spacing: 5px;
+.editButton:hover>img {
+  transform: scale(1.1);
 }

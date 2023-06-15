@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uploadImage, uploadInventory } from "../../../actions/UploadAction";
 
 import './AddInv.css';
@@ -9,8 +9,7 @@ const AddInv = ({ onPreview }) => {
   const dispatch = useDispatch(); // dispatch function to allow actions
 
   // get user info
-  const user = JSON.parse(localStorage.getItem("profile"));
-  const userId = user?.user?._id;
+  const { user } = useSelector((state) => state.authReducer.authData);
 
 
   // useRef hook to reference values later on
@@ -36,7 +35,7 @@ const AddInv = ({ onPreview }) => {
     event.preventDefault();
     // event handler function triggered when the user clicks the upload button creating object
     const newInventory = {
-      userId,
+      userId: user._id,
       name: nameRef.current.value,
       category: catRef.current.value,
     };

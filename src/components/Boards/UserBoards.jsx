@@ -12,7 +12,7 @@ const UserBoards = () => {
         })}
         </div>
         <div className="createButton">
-        <button class="new-board" role="button">New Board</button>
+        <button class="new-board" role="button">Create Board</button>
         </div>
     </div>
       )

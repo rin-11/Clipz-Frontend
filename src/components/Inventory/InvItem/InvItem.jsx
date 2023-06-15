@@ -3,7 +3,10 @@ import './InvItem.css'
 
 // Define a destructured prop 'data', which is passed as an object to the component
 const InvItem = ({data}) => {
-    
+  // get user info
+  const user = JSON.parse(localStorage.getItem("profile"));
+  const userId = user?.user?._id;
+
   return (
     <div className="InvItem">
         <img src={data.image} alt="InvItem" />

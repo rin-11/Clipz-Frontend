@@ -5,6 +5,7 @@ import InvItem from '../InvItem/InvItem'
 
 
 const UserInventory = () => {
+  
   return (
     <div className="UserInventory">
    {InventoryData.map((item, id)=>{

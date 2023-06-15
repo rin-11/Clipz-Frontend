@@ -9,8 +9,7 @@ import Profile from './pages/Profile/Profile';
 import SearchBar from './components/Header/SearchBar/SearchBar';
 
 function App() {
-  // retrieve the 'profile' item from the localStorage and parse it from JSON to a JS object
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = useSelector((state) => state.authReducer.authData);
 
   return (
     <div className="App">

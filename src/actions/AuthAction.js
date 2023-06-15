@@ -35,3 +35,8 @@ export const registerUser = (formData) => async (dispatch) => {
     console.log("Register Error");
   }
 };
+
+// clear userdata to logout
+export const logoutUser = ()=> async(dispatch)=> {
+  dispatch({type: "LOG_OUT"})
+}
