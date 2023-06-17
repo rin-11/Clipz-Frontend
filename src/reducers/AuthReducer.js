@@ -25,10 +25,21 @@ const authReducer = (state = { authData: null, loading: false, error: false, upd
       return {...state,  authData: null, loading: false, error: false, updateLoading: false }
 
 
-    case "FOLLOW_USER":
-      return {...state, authData: {...state.authData, user: {...state.authData.user, following: [...state.authData.user.following, action.userData]} }}
-    
-    case "UNFOLLOW_USER":
+      case "FOLLOW_USER":
+        const { data } = action;
+        const updatedUser = state.authData.user; // Fetch the current user object
+        const updatedFollowing = [...updatedUser.following, data]; // Update the following array with the user object
+        const updatedAuthData = {
+          ...state.authData,
+          user: {
+            ...updatedUser,
+            following: updatedFollowing
+          }
+        };
+        return {
+          ...state,
+          authData: updatedAuthData
+        };
       return {...state, authData: {...state.authData, user: {...state.authData.user, following: [...state.authData.user.following.filter((personId)=>personId!==action.userData)]} }}
 
       default:

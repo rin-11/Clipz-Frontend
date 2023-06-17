@@ -8,6 +8,7 @@ const OtherUserInfo = () => {
     const dispatch = useDispatch()
   const { id } = useParams(); // Get the user ID from the URL parameter
   const [userInfo, setUserInfo] = useState(null);
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
     // Fetch the user info from MongoDB using the ID
@@ -29,8 +30,9 @@ const OtherUserInfo = () => {
     fetchUserInfo();
   }, [id]);
 
-    const handleFollow = () => {
-    dispatch(followUser(id))
+  const handleFollow = () => {
+    const currentUserId = user?.user?._id; 
+    dispatch(followUser(id, { currentUserId }));
     console.log('Followed' + id);
   };
 

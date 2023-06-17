@@ -13,10 +13,14 @@ export const updateUser=(id, formData)=> async(dispatch)=> {
     }
 }
 
-export const followUser = (id, data)=> async(dispatch)=> {
-    dispatch({type: "FOLLOW_USER", data: id})
-    UserRequest.followUser(id, data)
-}
+export const followUser = (id, data) => async (dispatch) => {
+    try {
+      await UserRequest.followUser(id, data);
+      dispatch({ type: "FOLLOW_USER", data: id });
+    } catch (error) {
+        dispatch({type: "Follow_FAIL"})
+    }
+  };
 
 export const unfollowUser = (id, data)=> async(dispatch)=> {
     dispatch({type: "UNFOLLOW_USER", data: id})

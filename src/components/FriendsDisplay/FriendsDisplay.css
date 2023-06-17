@@ -7,7 +7,6 @@
   display: inline-block;
   border: 4px double rgb(43, 42, 42);
   border-radius: 50px;
-  gap: 1rem;
   padding: 0px 20px;
   position: fixed;
   right: 15px;
@@ -17,6 +16,10 @@
   overflow: hidden;
   overflow-y: scroll;
   letter-spacing: 8px;
+}
+a {
+  text-decoration: none;
+  color: rgb(65, 7, 44);
 }
 .followerslist>h3{
   font-size: 25px;
@@ -41,7 +44,6 @@
   display: inline-block;
   border: 4px double rgb(43, 42, 42);
   border-radius: 50px;
-  gap: 1rem;
   padding: 0px 20px;
   position: fixed;
   right: 15px;
@@ -68,7 +70,6 @@
 
 .following>div{
     display: flex;
-    gap: 10px;
 }
 
 .displayname{
