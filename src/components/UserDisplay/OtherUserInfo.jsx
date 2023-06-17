@@ -5,7 +5,7 @@ import axios from 'axios';
 import { followUser } from '../../api/UserRequest';
 import './OtherUserInfo.css'
 const OtherUserInfo = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const { id } = useParams(); // Get the user ID from the URL parameter
   const [userInfo, setUserInfo] = useState(null);
   const user = JSON.parse(localStorage.getItem("profile"));

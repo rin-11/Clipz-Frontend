@@ -12,3 +12,4 @@ export const updateInventory = (id, updatedData) =>
   API.put(`/inventory/${id}`, updatedData);
 
 export const deleteInventoryItem = (id) => API.delete(`/inventory/${id}`);
+

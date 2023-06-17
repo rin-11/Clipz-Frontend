@@ -7,108 +7,98 @@ import EditUser from '../EditUser/EditUser';
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, updateUser } from '../../../api/UserRequest';
 import { logoutUser } from '../../../actions/AuthAction';
-import { useNavigate } from 'react-router-dom'; // for routing to auth page 
+import { useNavigate } from 'react-router-dom'; 
 
+const UserInfo = ({profilePicture}) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { user } = useSelector((state) => state.authReducer.authData);
+    const userId = user?._id;
 
-const UserInfo = () => {
-  // initialize useNavigate & useDispatch
-  const navigate = useNavigate(); 
-  const dispatch = useDispatch()
-  // Obtain the userId from the authData object
-  const user = JSON.parse(localStorage.getItem("profile"));
-  const userId = user?.user?._id;  
-  
-  
-  const [userData, setUserData] = useState(null); // stores the current display name & is initialized with  'Display Name' value -- still need to connect to MongoDB user info for storage
-  const [isEditing, setIsEditing] = useState(false); // editing mode false to start until button pressed
+    const [userData, setUserData] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
 
-  useEffect(() => {
-    // Fetch user data and update state
+    useEffect(() => {
     fetchUserData();
-  }, []);
+    }, []);
 
-    const handleLogout = ()=> {
-    dispatch(logoutUser()) // logout action from auth actions
-    navigate('/auth');  // Redirect user to the /auth page
-  }
-
-
-  // Function to fetch user data
-  const fetchUserData = async () => {
-    try {
-      if (userId) {
-        const response = await getUser(userId); // Use the correct userId
-        setUserData(response.data);
-      } else {
-        console.log(user);
-      }
-    } catch (error) {
-      console.log(error);
+    const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate('/auth');
     }
-  };
-  
-  // Extracting necessary data from userData
-  const displayName = userData?.displayName || 'Display Name';
-  const profilePicture = userData?.profilePicture || defaultProfilePicture;
-  const username = userData?.username || '@Username';
 
-  const handleEditClick = () => { // function to set editing to true when edit profile button hit
+    const fetchUserData = async () => {
+    try {
+    if (userId) {
+    const response = await getUser(userId);
+    setUserData(response.data);
+    } else {
+    console.log(user);
+    }
+    } catch (error) {
+    console.log(error);
+    }
+    };
+
+    const displayName = userData?.displayName || 'Display Name';
+    const profilePictureSrc = profilePicture ? `/profile/${profilePicture}` : defaultProfilePicture;
+    const username = userData?.username || '@Username';
+
+    const handleEditClick = () => {
     setIsEditing(true);
-  };
+    };
 
-  const handleSave = async (newDisplayName, newProfilePicture) => { // save updated profile pic and display name 
+    const handleSave = async (newDisplayName, newProfilePicture) => {
     try {
-      const updatedData = {
-        displayName: newDisplayName,
-        profilePicture: newProfilePicture || userData.profilePicture,
-      };
-      const response = await updateUser(userId, updatedData);
-      setUserData(response.data);
-      setIsEditing(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleCancel = () => { // no changes made and editing closed
+    const updatedData = {
+    displayName: newDisplayName,
+    profilePicture: newProfilePicture || userData.profilePicture,
+    };
+    const response = await updateUser(userId, updatedData);
+    setUserData(response.data);
     setIsEditing(false);
-  };
+    } catch (error) {
+    console.log(error);
+    }
+    };
 
-  if (!userData) {
+    const handleCancel = () => {
+    setIsEditing(false);
+    };
+
+    if (!userData) {
     return <div>User Not Found</div>;
-  }
+    }
 
-  return (
-    <div className="UserInfo">
-      <div className="Propic">
-        <img src={profilePicture} alt="user profile" />
-      </div>
-      <div className="ProfileName">
-        <h2>{isEditing ? <EditUser onSave={handleSave} onCancel={handleCancel} /> : displayName}</h2>
-        <h3> {!isEditing && username}</h3>
-        <div className="ProfileButtons">
-          <div className="editButton">
+    return (
+      <div className="UserInfo">
+        <div className="Propic">
+          <img src={profilePictureSrc} alt="Profile Picture" />
+        </div>
+        <div className="ProfileName">
+          <h2>{isEditing ? <EditUser onSave={handleSave} onCancel={handleCancel} /> : displayName}</h2>
+          <h3>{!isEditing && username}</h3>
+          <div className="ProfileButtons">
+            <div className="editButton">
             {!isEditing && (
-              <button className="editButton" onClick={handleEditClick}>   
-                <img src={Edit} alt="edit user information" className="editIcon" />
-                <h5>Edit Profile</h5>
-              </button>
+            <button className="editButton" onClick={handleEditClick}>
+            <img src={Edit} alt="edit user information" className="editIcon" />
+            <h5>Edit Profile</h5>
+            </button>
             )}
-          </div>
+            </div>
           {!isEditing && (
-          <div className="logoutButton">
-   
-              <button className="logoutButton"onClick={handleLogout}>
-                <img src={Logout} alt="Logout" className="logoutIcon" />
-                <h4>Logout</h4>
+            <div className="logoutButton">
+              <button className="logoutButton" onClick={handleLogout}>
+              <img src={Logout} alt="Logout" className="logoutIcon" />
+              <h4>Logout</h4>
               </button>
-          </div>
+            </div>
           )}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+    };
 
 export default UserInfo;
-
