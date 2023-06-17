@@ -11,9 +11,9 @@ const UserBoards = () => {
             return <Board data={board} id={id}/>
         })}
         </div>
-        <div className="createButton">
+        {/* <div className="createButton">
         <button class="new-board" role="button">Create Board</button>
-        </div>
+        </div> */}
     </div>
       )
     }

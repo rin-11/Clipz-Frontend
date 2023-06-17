@@ -9,9 +9,9 @@
   padding: 0px 20px;
   position: fixed;
   right: 15px;
-  top: 150px;
-  height: 30vh;
-  width: 36vh;
+  top: 250px;
+  height: 50vh;
+  width: 40vh;
   overflow: auto;
   letter-spacing: 8px;
 }

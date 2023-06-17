@@ -10,7 +10,7 @@ const NavBar = () => {
     <div className="NavBar">
       <Link to={`/explore/${user?.user._id}`}>Explore</Link>
       <Link to={`/profile/${user?.user._id}`}>Profile</Link>
-      <Link to={`/inbox/${user?.user._id}`}>Inbox</Link>
+      <Link to={`/create/${user?.user._id}`}>Create</Link>
     </div>
   );
 };

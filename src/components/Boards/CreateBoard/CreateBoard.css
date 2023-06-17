@@ -1,0 +1,10 @@
+.create {
+    position: fixed;
+    right: 400px;
+    top: 150px;
+    height: 80vh;
+    width: 97vh;
+    border: 4px groove rgb(43, 42, 42);
+    border-radius: 20px;
+    overflow: hidden;
+}

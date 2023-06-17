@@ -10,16 +10,14 @@ const UserInventory = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authReducer.authData);
   let { inventory } = useSelector((state) => state.inventoryReducer);
-
-  inventory = inventory || [];  // Ensure inventory is always an array
-
   useEffect(() => {
     dispatch(getUserInventory(user._id));
   }, []);
-
   return (
     <div className="UserInventory">
-       {inventory.map((item, id) => <InvItem data={item} id={id}/>)}
+       {inventory ? inventory.map((item, id)=>{
+            return <InvItem data={item} id={id}/>
+        }) : null}
     </div>
   )
 }

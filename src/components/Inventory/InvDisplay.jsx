@@ -14,8 +14,6 @@ const InvDisplay = () => {
     <div className="InvDisplay">
       <AddInv/>
       <UserInventory/>
-      {/* {!isPreviewing && <AddInv onPreview={handlePreview} />}
-      {!isPreviewing && <UserInventory />} */}
     </div>
   );
 };
