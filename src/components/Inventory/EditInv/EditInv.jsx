@@ -14,7 +14,7 @@ const EditInv = ({ onSave, onCancel, initialName, initialCategory }) => {
       <div className="EditInvDisplay">
         <form>
           <div className="editItemNameForm">
-            <label htmlFor="itemName">Item Name:</label>
+            <label htmlFor="itemName">Name:</label>
             <input
               type="text"
               id="itemName"

@@ -5,17 +5,15 @@
     gap: 1rem;
 }
 
-.InvItem>img{
+.details>img{
     width: 100%;
-    height: 10rem;
-    width: 10rem;
+    height: 15rem;
+    width: 15rem;
     object-fit: cover;
     cursor: pointer;
-    transition: transform 0.3s ease
 }
 .InvItem:hover {
   color: #585656; 
-  transform: scale(1.1);
 }
 .details {
     display: flex;
@@ -24,4 +22,27 @@
 .details>:nth-of-type(1){
     font-size: 20px;
     font-weight: bold;
+}
+.editItemButtons{
+    gap: 1em;
+}
+.editItemButtons>button {
+    background-color: #AB9C92;
+    border: 2px solid #111;
+    font-family: 'Abril Fatface', cursive;
+    padding: 5px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    font-size: 17px;
+    width: 10vh;
+    height: 5vh;
+    letter-spacing: 2px;
+    touch-action: manipulation;
+    transition: transform 0.3s ease;
+    margin: 5px;
+}
+.editItemButtons:hover{
+    transform: scale(1.1);
 }

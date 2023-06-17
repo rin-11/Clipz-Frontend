@@ -50,7 +50,7 @@ const InvItem = ({ data }) => {
           />
         )}
       </div>
-      <div className="editItemButton">
+      <div className="editItemButtons">
         {isEditing ? (
           <button onClick={handleDelete}>Delete</button>
         ) : (
