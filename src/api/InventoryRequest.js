@@ -11,4 +11,6 @@ export const getInventoryItem = (id) => API.get(`/inventory/item/${id}`, { respo
     return blob;
   });
 
+export const updateInventory = (id, formData) =>  API.put(`/inventory/${id}`, formData);
+
 export const deleteInventoryItem= (id) => API.delete(`/inventory/${id}`);

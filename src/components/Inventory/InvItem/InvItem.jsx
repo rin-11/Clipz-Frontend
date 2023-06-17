@@ -1,68 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InvItem.css';
-import axios from "axios";
+import EditInv from '../EditInv/EditInv.jsx';
 
 const InvItem = ({ data }) => {
-  // Construct the image URL
-  const baseURL= process.env.REACT_APP_BASE_URL 
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const imageUrl = baseURL + `/inventory/${data.image}`;
 
   const [isEditing, setIsEditing] = useState(false);
-  const [editedName, setEditedName] = useState(data.name);
-  const [editedCategory, setEditedCategory] = useState(data.category);
+  const [name, setName] = useState(data.name);
+  const [category, setCategory] = useState(data.category);
 
-  const handleEdit = () => {
+  const handleEditClick = () => {
     setIsEditing(true);
   };
 
-  const handleSave = async () => {
-    const updatedItem = { ...data, name: editedName, category: editedCategory };
-    try {
-      await axios.put(`${baseURL}/inventory/${data._id}`, updatedItem);
-      setIsEditing(false);
-    } catch (error) {
-      console.log(error);
-    }
+  const handleSave = (newName, newCategory) => {
+    setName(newName);
+    setCategory(newCategory);
+    setIsEditing(false);
   };
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`${baseURL}/inventory/${data._id}`);
-      // You can add additional logic here, such as updating the inventory state in Redux
-    } catch (error) {
-      console.log(error);
-    }
+  const handleDelete = () => {
+    // Perform delete operation here
+    console.log('Deleting item');
   };
 
   return (
     <div className="InvItem">
-      <img src={imageUrl} alt="InvItem" />
-      {isEditing ? (
-        <div className="edit-details">
-          <input
-            type="text"
-            value={editedName}
-            onChange={(e) => setEditedName(e.target.value)}
+      <div className="details">
+        <img src={imageUrl} alt="InvItem" />
+        {!isEditing ? (
+          <>
+            <span>
+              <b>{name}</b>
+            </span>
+            <span>{category}</span>
+          </>
+        ) : (
+          <EditInv
+            onSave={handleSave}
+            onCancel={() => setIsEditing(false)}
+            initialName={name}
+            initialCategory={category}
           />
-          <input
-            type="text"
-            value={editedCategory}
-            onChange={(e) => setEditedCategory(e.target.value)}
-          />
-          <button onClick={handleSave}>Save</button>
-        </div>
-      ) : (
-        <div className="details">
-          <span>
-            <b>{data.name}</b>
-          </span>
-          <span> {data.category}</span>
-          <div className="buttons">
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
+      <div className="editItemButton">
+        {isEditing ? (
+          <button onClick={handleDelete}>Delete</button>
+        ) : (
+          <button onClick={handleEditClick}>Edit</button>
+        )}
+      </div>
     </div>
   );
 };

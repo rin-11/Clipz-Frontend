@@ -5,9 +5,9 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 250px;
+    top: 200px;
     left: 370px;
-    height: 60vh;
+    height: 70vh;
     width: 97vh;
     overflow: hidden;
     overflow-y: hidden;

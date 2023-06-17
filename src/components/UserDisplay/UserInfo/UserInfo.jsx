@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'; // for routing to auth page
 
 
 const UserInfo = () => {
-  // // initialize useNavigate & useDispatch
+  // initialize useNavigate & useDispatch
   const navigate = useNavigate(); 
   const dispatch = useDispatch()
   // Obtain the userId from the authData object
