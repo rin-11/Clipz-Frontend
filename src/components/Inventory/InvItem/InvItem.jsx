@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './InvItem.css';
 import EditInv from '../EditInv/EditInv.jsx';
+import { useDispatch, useSelector } from "react-redux";
+import { deleteInventoryItem } from '../../../actions/InventoryAction'
+
 
 const InvItem = ({ data }) => {
+  const dispatch = useDispatch()
   const baseURL = process.env.REACT_APP_BASE_URL;
   const imageUrl = baseURL + `/inventory/${data.image}`;
+  const invId = data._id;
 
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState(data.name);
   const [category, setCategory] = useState(data.category);
-
+  
   const handleEditClick = () => {
     setIsEditing(true);
   };
@@ -21,8 +26,8 @@ const InvItem = ({ data }) => {
   };
 
   const handleDelete = () => {
-    // Perform delete operation here
-    console.log('Deleting item');
+    dispatch(deleteInventoryItem(invId))
+    console.log('Deleting item' + invId);
   };
 
   return (

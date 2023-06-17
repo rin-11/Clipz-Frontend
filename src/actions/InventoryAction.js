@@ -14,3 +14,12 @@ export const getUserInventory = (id) => async (dispatch) => {
     dispatch(inventoryCouldNotBeFound());
   }
 };
+
+export const deleteInventoryItem = (id) => async (dispatch) => {
+  try {
+    await InventoryRequest.deleteInventoryItem(id);
+    dispatch({ type: "DELETE_INVENTORY_ITEM", id });
+  } catch (error) {
+    console.log(error);
+  }
+};
