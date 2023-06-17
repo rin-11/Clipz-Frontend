@@ -1,0 +1,71 @@
+.OtherUserInfo {
+    font-family: 'Abril Fatface', cursive;
+    display: inline-block;
+    border: 4px double rgb(43, 42, 42);
+    border-radius: 50px;
+    padding: 20px 20px;
+    text-align: center;
+    position: fixed;
+    left: 20px;
+    height: 500px;
+    width: 270px;;
+    top: 570px;
+    transform: translateY(-50%);
+  }
+
+.OtherUserPropic>img {
+    width: 150px; 
+    height: 150px; 
+}
+
+
+.OtherProfileName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.OtherProfileName>img {
+  width: 50px; 
+  height: 40px; 
+}
+
+.ProfileName>h2 {
+    font-size: 40px;
+}
+.OtherProfileName>h3 {
+  font-size: 20px;
+  letter-spacing: 8px;
+}
+.ProfileButtons>div{
+  padding: 5px;
+}
+
+.followButton>button{
+    background-color: #AB9C92;
+    border: 2px solid #111;
+    font-family: 'Abril Fatface', cursive;
+    padding: 5px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    font-size: 17px;
+    width: 15vh;
+    height: 10vh;
+    letter-spacing: 2px;
+    touch-action: manipulation;
+    transition: transform 0.3s ease;
+    margin: 5px;
+}
+.followButton>h4{
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 5px;
+    margin-left: 15px;
+  }
+  
+  .followButton:hover {
+    color: #585656; 
+    transform: scale(1.1);
+  }

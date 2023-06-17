@@ -2,21 +2,29 @@ import React, { useState } from 'react';
 import './SearchBar.css';
 import SearchButton from '../../../assets/search.png';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
   const handleButtonClick = async () => {
     try {
-      // Make a request to your backend server to search the MongoDB
+      // Make request to backend server to search the MongoDB
       const response = await axios.get(`/search/${searchQuery}`);
       const userData = response.data;
-      console.log('User data:', userData);
 
+      if (userData.length === 0) {
+        console.log('User not found');
+      } else {
+        const userId = userData[0]._id;
+        navigate(`/search/profile/${userId}`);
+      }
     } catch (error) {
       console.error(error);
     }
   };
+
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };

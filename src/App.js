@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import UserAuth from './pages/Auth/Auth';
 import Explore from './pages/Explore/Explore';
 import Profile from './pages/Profile/Profile';
+import OtherUserProfile from './pages/Profile/OtherUserProfile';
 import Create from './pages/Create/Create';
 import SearchBar from './components/Header/SearchBar/SearchBar';
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Explore />} />
             <Route path="/auth" element={<Explore />} />
             <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/search/profile/:id" element={<OtherUserProfile />} />
             <Route path="/explore/:id" element={<Explore />} />
             <Route path="/create/:id" element={<Create/>} />
           </>

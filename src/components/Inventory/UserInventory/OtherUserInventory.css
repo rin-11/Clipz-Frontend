@@ -1,0 +1,16 @@
+.OtherUserInventory {
+    font-family: 'Abril Fatface', cursive;
+    border: 4px groove rgb(43, 42, 42);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 50px 50px 50px 50px;
+    position: fixed;
+    top: 200px;
+    left: 370px;
+    height: 50vh;
+    width: 97vh;
+    overflow: scroll;
+    overflow-y: hidden;
+  }
