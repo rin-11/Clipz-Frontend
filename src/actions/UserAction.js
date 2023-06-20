@@ -1,7 +1,12 @@
 import * as UserRequest from "../api/UserRequest"
 
+// action creator functions:
+    // 1. updateUser 
+    // 2. followUser 
+    // 3. unfollowUser 
 
 export const updateUser=(id, formData)=> async(dispatch)=> {
+    // pass in userID and formData to update
     dispatch({type: "UPDATING_START"})
     try{
         const {data} = await UserRequest.updateUser(id, formData);

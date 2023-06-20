@@ -1,26 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import './EditUser.css';
-import { useDispatch } from 'react-redux';
 import { uploadImage } from '../../../actions/UploadAction';
 
 const EditUser = ({ onSave, onCancel }) => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.authReducer.authData);
+  const nameRef = useRef();
+  const catRef = useRef();
+  const imageRef = useRef();
   const [displayName, setDisplayName] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
-  const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
-    const { name, value, files } = event.target;
+    const { name, value } = event.target;
     if (name === 'displayName') {
       setDisplayName(value);
-    } else if (name === 'profilePicture') {
-      setProfilePicture(files[0]);
+    }
+  };
+
+  const handlePropicChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      const image = event.target.files[0];
+      setProfilePicture(image);
     }
   };
 
   const handleSubmit = async () => {
     if (profilePicture) {
       const formData = new FormData();
-      formData.append('image', profilePicture);
+      const fileName = Date.now() + profilePicture.name;
+      formData.append("name", fileName);
+      formData.append("file", profilePicture);
       try {
         await dispatch(uploadImage(formData));
       } catch (error) {
@@ -44,16 +55,16 @@ const EditUser = ({ onSave, onCancel }) => {
             <input type="text" id="displayName" name="displayName" onChange={handleInputChange} />
           </div>
           <div className="editProPicForm">
-            <label htmlFor="profilePicture" className="file-upload">
-              Upload Profile Photo
-            </label>
             <input
               type="file"
               id="profilePicture"
               name="profilePicture"
-              onChange={handleInputChange}
-              style={{ display: 'none' }}
+              ref={imageRef}
+              onChange={handlePropicChange}
             />
+            {profilePicture && (
+              <img src={URL.createObjectURL(profilePicture)} alt="Selected Profile Picture" />
+            )}
           </div>
           <div className="editButtons">
             <button type="button" className="saveButton" onClick={handleSubmit}>

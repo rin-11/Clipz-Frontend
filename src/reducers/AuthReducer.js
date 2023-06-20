@@ -27,8 +27,8 @@ const authReducer = (state = { authData: null, loading: false, error: false, upd
 
       case "FOLLOW_USER":
         const { data } = action;
-        const updatedUser = state.authData.user; // Fetch the current user object
-        const updatedFollowing = [...updatedUser.following, data]; // Update the following array with the user object
+        const updatedUser = state.authData.user; 
+        const updatedFollowing = [...updatedUser.following, data]; 
         const updatedAuthData = {
           ...state.authData,
           user: {

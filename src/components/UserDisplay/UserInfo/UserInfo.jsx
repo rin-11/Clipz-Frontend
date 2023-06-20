@@ -10,13 +10,14 @@ import { logoutUser } from '../../../actions/AuthAction';
 import { useNavigate } from 'react-router-dom';
 import { uploadImage } from '../../../actions/UploadAction';
 
-const UserInfo = ({ profilePicture }) => {
+const UserInfo = ({data}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authReducer.authData);
   const userId = user?._id;
 
   const [userData, setUserData] = useState(null);
+  const [profilePicture, setProfilePicture] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
@@ -42,7 +43,9 @@ const UserInfo = ({ profilePicture }) => {
   };
 
   const displayName = userData?.displayName || 'Display Name';
-  const profilePictureSrc = userData?.profilePicture || defaultProfilePicture;
+  const profilePictureName = userData?.profilePicture || defaultProfilePicture;
+  const baseURL = process.env.REACT_APP_BASE_URL;
+  const profilePictureSrc = baseURL + `/inventory/${profilePictureName}`;
   const username = userData?.username || '@Username';
 
   const handleEditClick = () => {
@@ -57,6 +60,7 @@ const UserInfo = ({ profilePicture }) => {
       };
       const response = await updateUser(userId, updatedData);
       setUserData(response.data);
+      setProfilePicture(response.data.profilePicture); 
       setIsEditing(false);
     } catch (error) {
       console.log(error);
