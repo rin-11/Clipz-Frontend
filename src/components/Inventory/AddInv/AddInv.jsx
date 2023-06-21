@@ -6,7 +6,8 @@ import './AddInv.css';
 
 
 const AddInv = ({ onPreview }) => {
-  const dispatch = useDispatch(); // dispatch function to allow actions
+  // dispatch function to allow actions
+  const dispatch = useDispatch(); 
 
   // get user info
   const { user } = useSelector((state) => state.authReducer.authData);

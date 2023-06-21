@@ -5,8 +5,13 @@ import axios from 'axios';
 import { followUser } from '../../api/UserRequest';
 import './OtherUserInfo.css'
 const OtherUserInfo = () => {
-  const dispatch = useDispatch()
-  const { id } = useParams(); // Get the user ID from the URL parameter
+
+  // dispatch actions to the Redux store
+  const dispatch = useDispatch() 
+
+  // Get the user ID from the URL parameter
+  const { id } = useParams(); 
+
   const [userInfo, setUserInfo] = useState(null);
   const user = JSON.parse(localStorage.getItem("profile"));
 

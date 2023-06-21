@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import './EditInv.css';
 
 const EditInv = ({ onSave, onCancel, initialName, initialCategory }) => {
+  // state variables and functions for setting (changing)inventory info from initial
   const [name, setName] = useState(initialName);
   const [category, setCategory] = useState(initialCategory);
 
+  // Event Handler for saving data change
   const handleSave = () => {
     onSave(name, category);
   };

@@ -3,29 +3,38 @@ import { useDispatch, useSelector } from "react-redux";
 import './EditUser.css';
 import { uploadImage } from '../../../actions/UploadAction';
 
-const EditUser = ({ onSave, onCancel }) => {
+const EditUser = ({ onSave, onCancel }) => { // onSave and onCancel are passed from UserInf (parent)
+  
+  // dispatch hook function to allow actions
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.authReducer.authData);
+
+  // get user info
+  const { user } = useSelector((state) => state.authReducer.authData); // useSelector hook to access the authReducer's authData from the Redux state and extract the user object
+
+
+  // hooks for React elements to directly interact with their DOM elements
   const nameRef = useRef();
   const catRef = useRef();
   const imageRef = useRef();
+
+  // state variables and functions for setting user info
   const [displayName, setDisplayName] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
 
+
+  // Event Handlers:
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === 'displayName') {
       setDisplayName(value);
     }
   };
-
   const handlePropicChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       const image = event.target.files[0];
       setProfilePicture(image);
     }
   };
-
   const handleSubmit = async () => {
     if (profilePicture) {
       const formData = new FormData();
@@ -38,9 +47,8 @@ const EditUser = ({ onSave, onCancel }) => {
         console.log(error);
       }
     }
-    onSave(displayName, profilePicture ? profilePicture.name : null);
+    onSave(displayName, profilePicture);
   };
-
   const handleCancel = () => {
     onCancel();
   };

@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import the Link component
+import { Link } from 'react-router-dom'; 
 import './FriendsDisplay.css';
 
 const FriendsDisplay = () => {
+  // useSelector hook to access the current user data from the state managed by Redux
   const user = useSelector((state) => state.authReducer.authData.user);
+  
+  // useState to update user followers and following
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
 
+  // useEffect hook is used here to fetch the followers/following of the user based on user._id changes
   useEffect(() => {
+    // Two async functions for GET requests (follower & following)
     const fetchFollowers = async () => {
       try {
         const response = await axios.get(`/user/followers/${user._id}`);
@@ -18,7 +23,6 @@ const FriendsDisplay = () => {
         console.error(error);
       }
     };
-
     const fetchFollowing = async () => {
       try {
         const response = await axios.get(`/user/following/${user._id}`);
@@ -27,7 +31,7 @@ const FriendsDisplay = () => {
         console.error(error);
       }
     };
-
+    // invoke async functions & include user._id
     fetchFollowers();
     fetchFollowing();
   }, [user._id]);
